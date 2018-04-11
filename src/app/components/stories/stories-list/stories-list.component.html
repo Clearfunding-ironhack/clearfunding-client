@@ -1,0 +1,28 @@
+
+  <div class="feed">
+<div *ngFor="let story of stories">
+  <div class="card-box">
+    <div class="ui card">
+        <div class="image">
+          <div class="ui blurring inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui teal button">Add Friend</div>
+              </div>
+            </div>
+          </div>
+          <img [src]="story.image">
+        </div>
+        <div class="content">
+          
+          <div class="header">{{ story.header }}</div>
+          <div class="description"> {{ story.subheader }}</div>
+        </div>
+        <div class="extra content">
+          <a class="left floated created">{{ story.createdAt }}</a>
+          <a class="right floated created">Read more</a>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
