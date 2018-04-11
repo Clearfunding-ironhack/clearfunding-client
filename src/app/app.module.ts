@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { CampaignListComponent } from './components/campaign/campaign-list/campaign-list.component';
+import { NavbarComponent } from './components/misc/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CampaignListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule
