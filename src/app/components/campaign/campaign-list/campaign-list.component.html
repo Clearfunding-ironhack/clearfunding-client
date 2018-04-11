@@ -1,3 +1,8 @@
-<p>
-  campaign-list works!
-</p>
+<div *ngFor='let campaign of campaigns'>
+
+  <h3>{{ campaign.title }}</h3>
+  <h5>Target: {{ campaign.target }} USD</h5>
+  <!-- <img [src]='campaign.image'> -->
+
+</div>
+

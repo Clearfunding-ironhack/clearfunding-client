@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { CampaignListComponent } from './components/campaign/campaign-list/campaign-list.component';
 import { NavbarComponent } from './components/misc/navbar/navbar.component';
+import { CampaignsService } from './shared/services/campaign.service';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
+
 
 
 @NgModule({
@@ -14,9 +17,12 @@ import { NavbarComponent } from './components/misc/navbar/navbar.component';
     NavbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    CampaignsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
