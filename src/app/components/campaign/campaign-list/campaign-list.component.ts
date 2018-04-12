@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Campaign } from '../../../shared/models/campaign.model';
-import { campaigns } from '../../../shared/data/campaigns.data';
 import { CampaignsService } from '../../../shared/services/campaign.service';
+import { campaigns } from '../../../shared/data/campaigns.data';
+import { Campaign } from '../../../shared/models/campaign.model';
 import { Router } from '@angular/router';
 
 
@@ -20,7 +20,7 @@ export class CampaignListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.campaignsService.listCampaigns();
+    this.campaigns = this.campaignsService.listCampaigns();
   }
 
 }

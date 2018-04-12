@@ -1,0 +1,58 @@
+<div class="container">
+
+<form class="ui form" [formGroup]='signupForm' (ngSubmit)='onSubmitSignup()'>
+    <div class="field">
+      <label>Username</label>
+      <input 
+        type="text" 
+        placeholder="Username"
+        formControlName="username">
+        <span
+          *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
+          class="ui negative message">Please enter a valid username!</span>
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input 
+        type="text" 
+        formControlName="email" 
+        placeholder="Email">
+        <span
+        *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+        class="ui negative message">Please enter a valid email!</span>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input 
+        type="password"
+        formControlName="password" 
+        placeholder="Password">
+        <span
+        *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
+        class="ui negative message">Please enter a valid password!</span>
+    </div>
+    <div class="field">
+      <label>Repeat Password </label>
+      <input 
+        type="password"
+        formControlName="repeatPassword"
+        placeholder="Repeat Password">
+        <span
+        *ngIf="!signupForm.get('repeatPassword').valid && signupForm.get('repeatPassword').touched"
+        class="ui negative message">Please enter a valid password!</span>
+    </div>
+
+
+    <!-- <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" tabindex="0" class="hidden">
+        <label>I agree to the Terms and Conditions</label>
+      </div>
+    </div> -->
+    <!-- <span
+        <*ngIf="!signupForm.valid && signupForm.touched"
+        class="ui negative message">Please enter valid data!</span>  -->
+    <button class="ui button" type="submit" [disabled]="!signupForm.valid">Submit</button>
+  </form> 
+
+</div>
