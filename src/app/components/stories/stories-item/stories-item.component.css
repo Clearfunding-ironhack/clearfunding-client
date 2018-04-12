@@ -1,0 +1,46 @@
+.image-head {
+    max-width: 100%;
+    height: auto;
+    display: inline-flex;
+    text-align: justify ;
+}
+
+.stories-list-total-container{
+    display: flex;
+    justify-content: center
+}
+
+.stories-list-container{
+    width: 75%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.post-head-image-container{
+    position: relative;
+    text-align: center;
+    opacity: 1;
+}
+
+.heart {
+    background: black;
+    position:fixed;
+    left:75%;
+    top:85%;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    text-align: center
+}

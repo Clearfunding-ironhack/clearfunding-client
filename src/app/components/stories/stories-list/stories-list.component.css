@@ -17,3 +17,8 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.card-bottom{
+    display: flex;
+    justify-content: space-between
+}

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoriesService } from './../../../shared/services/stories.service';
 import { Story } from './../../../shared/models/story.model';
-
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,25 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class StoriesItemComponent implements OnInit {
   story: Story;
 
-  constructor() { }
+  constructor(
+    private routes: ActivatedRoute,
+    private moviesService: StoriesService
+  ) { }
 
   ngOnInit() {
-  }
-
+        this.routes
+          .params
+          .subscribe(params => this.story = this.moviesService.getStory(String(params['id'])));
+      }
 }
-
-
-// export class MovieItemComponent implements OnInit {
-//   movie: Movie
-
-//   constructor(
-//     private routes: ActivatedRoute,
-//     private moviesService: MoviesService) {}
-
-//   ngOnInit() {
-//     this.routes
-//       .params
-//       .subscribe(params => this.movie = this.moviesService.getMovie(Number(params['id'])));
-//   }
-
-// }

@@ -10,6 +10,8 @@ import { NavbarComponent } from './components/misc/navbar/navbar.component';
 import { StoriesListComponent } from './components/stories/stories-list/stories-list.component';
 import { StoriesItemComponent } from './components/stories/stories-item/stories-item.component';
 
+import { routes } from './app.routes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { StoriesItemComponent } from './components/stories/stories-item/stories-
     StoriesItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     StoriesService

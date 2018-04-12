@@ -11,16 +11,17 @@
               </div>
             </div>
           </div>
-          <img [src]="story.image">
+          <img [src]="story.image" alt="Story image" (click)="onClickImage(story.id)">
         </div>
         <div class="content">
           
           <div class="header">{{ story.header }}</div>
           <div class="description"> {{ story.subheader }}</div>
         </div>
-        <div class="extra content">
-          <a class="left floated created">{{ story.createdAt }}</a>
-          <a class="right floated created">Read more</a>
+        <div class="extra content card-bottom">
+          <a class="time">{{ story.createdAt }}</a>
+          <a class="minutes">{{ story.estimatedReadingTime }} minute read</a>
+          <a class="read">Read more!!</a>
         </div>
       </div>
     </div>

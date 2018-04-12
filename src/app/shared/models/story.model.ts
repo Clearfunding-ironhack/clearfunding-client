@@ -10,4 +10,6 @@ export class Story {
   image?: string;
   likes?: Array<User>;
   createdAt?: string;
+  text?: string;
+  estimatedReadingTime?: number;
 }
