@@ -1,3 +1,47 @@
-<p>
-  campaign-list works!
-</p>
+<div class="container" id='campaigns-container'>
+
+<div class="ui divided items cards" *ngFor="let campaign of campaigns">
+  <div class="ui link cards">
+    <div class="card">
+      <div class="image">
+        <img [src]='campaign.image'>
+      </div>
+      <div class="content">
+        <div class="header">{{ campaign.title }}</div>
+        <div class="meta">
+          <span>
+            <i class="tags icon"></i>
+            {{campaign.categories}}
+          </span>
+        </div>
+        <div class="description">
+          {{ campaign.abstract }}
+        </div>
+      </div>
+      <div class="extra content">
+        <span class="right floated">
+         <i class="time icon"></i>
+          15 June 2018
+        </span>
+        <span>
+          <i class="dollar icon"></i>
+          {{ campaign.target }} USD
+        </span>
+      </div>
+    </div>
+  
+</div>
+
+</div>
+
+
+
+  <!-- <h3>{{ campaign.title }}</h3>
+  <img [src]='campaign.image'>
+  <h5>Target: {{ campaign.target }} USD</h5>
+  <h5>Amount Raised: {{ campaign.amountRaised}} USD </h5>
+  <p>{{ campaign.abstract }}</p> -->
+
+
+
+

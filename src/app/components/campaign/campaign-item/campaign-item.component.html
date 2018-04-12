@@ -1,0 +1,63 @@
+
+<img [src]= campaign.image>
+<h1>{{ campaign.title }}</h1>
+
+
+<p>Created by: Barb</p>
+
+    <i class="tags icon"></i>
+    {{campaign.categories}}
+
+
+        <div class="ui statistics">
+            <div class="statistic">
+              <div class="value">
+                80%
+              </div>
+              <div class="label">
+                Funded
+              </div>
+            </div>
+            <div class="statistic">
+              <div class="value">
+                31,200
+              </div>
+              <div class="label">
+                Backers
+              </div>
+            </div>
+            <div class="statistic">
+              <div class="value">
+                22
+              </div>
+              <div class="label">
+                Days til deadline
+              </div>
+            </div>
+          </div>
+
+
+
+
+<p>{{ campaign.description }}</p>
+
+<ul class="ui ten wide column horizontal list" id='icon-list'>
+   
+    <div class="item">
+        <i class="time icon"></i>
+          15 June 2018
+    </div>
+    <div class="item">
+        <i class="map pin icon"></i>
+       {{campaign.location}}
+    </div>
+    <div class="item">
+            <i class="dollar icon"></i>
+            {{ campaign.target }} USD
+       
+    </div>
+
+    <div class="ui bottom fixed inverted menu" id='footer'>
+    DONATE
+    </div>
+  
