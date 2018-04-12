@@ -1,0 +1,24 @@
+.card-box {
+    display: flex;
+    margin-bottom: 20px; 
+    justify-content: center;
+    width: 350px;
+}
+
+.ui.card {
+    margin-bottom: 10px; 
+    width: 350px;
+
+}
+
+.feed {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-bottom{
+    display: flex;
+    justify-content: space-between
+}

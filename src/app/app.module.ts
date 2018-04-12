@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { StoriesService } from './shared/services/stories.service';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CampaignListComponent } from './components/campaign/campaign-list/campaign-list.component';
 import { NavbarComponent } from './components/misc/navbar/navbar.component';
@@ -10,8 +12,8 @@ import { routes } from './app.routes';
 import { CampaignItemComponent } from './components/campaign/campaign-item/campaign-item.component';
 import { SignupComponent } from './components/misc/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
+import { StoriesListComponent } from './components/stories/stories-list/stories-list.component';
+import { StoriesItemComponent } from './components/stories/stories-item/stories-item.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +21,21 @@ import { HttpModule } from '@angular/http';
     CampaignListComponent,
     NavbarComponent,
     CampaignItemComponent,
-    SignupComponent
+    SignupComponent,
+    StoriesListComponent,
+    StoriesItemComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
-    CampaignsService
+    CampaignsService,
+    StoriesService
+   
   ],
   bootstrap: [AppComponent]
 })

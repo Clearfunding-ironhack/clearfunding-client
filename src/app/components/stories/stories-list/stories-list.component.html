@@ -1,0 +1,29 @@
+
+  <div class="feed">
+<div *ngFor="let story of stories">
+  <div class="card-box">
+    <div class="ui card">
+        <div class="image">
+          <div class="ui blurring inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui teal button">Add Friend</div>
+              </div>
+            </div>
+          </div>
+          <img [src]="story.image" alt="Story image" (click)="onClickImage(story.id)">
+        </div>
+        <div class="content">
+          
+          <div class="header">{{ story.header }}</div>
+          <div class="description"> {{ story.subheader }}</div>
+        </div>
+        <div class="extra content card-bottom">
+          <a class="time">{{ story.createdAt }}</a>
+          <a class="minutes">{{ story.estimatedReadingTime }} minute read</a>
+          <a class="read">Read more!!</a>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
