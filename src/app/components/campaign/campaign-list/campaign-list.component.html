@@ -1,7 +1,7 @@
 <div class="container" id='campaigns-container'>
 
 <div class="ui divided items cards" *ngFor="let campaign of campaigns">
-  <div class="ui link cards">
+  <div class="ui link cards" (click)="onClickCard(campaign.id)">
     <div class="card">
       <div class="image">
         <img [src]='campaign.image'>
@@ -11,7 +11,7 @@
         <div class="meta">
           <span>
             <i class="tags icon"></i>
-            {{campaign.categories}}
+            {{campaign.categories.join(' - ')}}
           </span>
         </div>
         <div class="description">

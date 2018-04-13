@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Campaign } from '../../../shared/models/campaign.model';
-import { ActivatedRoute } from '@angular/router';
-import {}
-import { CampaignsService } from '../../../shared/services/campaign.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CampaignService } from '../../../shared/services/campaign.service';
+
+
 
 @Component({
   selector: 'app-campaign-item',
@@ -10,17 +11,20 @@ import { CampaignsService } from '../../../shared/services/campaign.service';
   styleUrls: ['./campaign-item.component.css']
 })
 export class CampaignItemComponent implements OnInit {
-  campaign: Campaign;
+  campaign: Campaign = new Campaign();
+  error: Object;
 
   constructor(
+    private router: Router,
     private routes: ActivatedRoute,
-    private campaignsService: CampaignsService
+    private campaignsService: CampaignService
   ) { }
 
   ngOnInit() {
     this.routes
-    .params
-    .subscribe(params => this.campaign = this.campaignsService.getCampaign(params['id']));
+    .data
+    .subscribe(data => {
+      this.campaign = data['campaign'];
+    });
   }
-
 }

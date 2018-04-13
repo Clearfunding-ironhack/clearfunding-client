@@ -18,7 +18,7 @@ export class StoriesListComponent implements OnInit {
       this.stories = this.storiesService.getStories();
   }
 
-  onClickImage(id: number) {
+  onClickCard(id: number) {
     this.router.navigate(['/stories', id]);
   }
 }

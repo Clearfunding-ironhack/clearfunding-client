@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CampaignListComponent } from './components/campaign/campaign-list/campaign-list.component';
 import { NavbarComponent } from './components/misc/navbar/navbar.component';
-import { CampaignsService } from './shared/services/campaign.service';
+import { CampaignService } from './shared/services/campaign.service';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { CampaignItemComponent } from './components/campaign/campaign-item/campaign-item.component';
@@ -14,6 +14,8 @@ import { SignupComponent } from './components/misc/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoriesListComponent } from './components/stories/stories-list/stories-list.component';
 import { StoriesItemComponent } from './components/stories/stories-item/stories-item.component';
+import './rxjs.operators';
+import { LoginComponent } from './components/misc/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { StoriesItemComponent } from './components/stories/stories-item/stories-
     CampaignItemComponent,
     SignupComponent,
     StoriesListComponent,
-    StoriesItemComponent
+    StoriesItemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +36,8 @@ import { StoriesItemComponent } from './components/stories/stories-item/stories-
     FormsModule,
   ],
   providers: [
-    CampaignsService,
+    CampaignService,
     StoriesService
-   
   ],
   bootstrap: [AppComponent]
 })

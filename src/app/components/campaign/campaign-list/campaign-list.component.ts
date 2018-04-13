@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CampaignsService } from '../../../shared/services/campaign.service';
+import { CampaignService } from '../../../shared/services/campaign.service';
 import { campaigns } from '../../../shared/data/campaigns.data';
 import { Campaign } from '../../../shared/models/campaign.model';
 import { Router } from '@angular/router';
@@ -16,11 +16,16 @@ export class CampaignListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private campaignsService: CampaignsService
+    private campaignsService: CampaignService
   ) { }
 
   ngOnInit() {
-    this.campaigns = this.campaignsService.listCampaigns();
+    this.campaignsService.listCampaigns()
+    // tslint:disable-next-line:no-shadowed-variable
+    .subscribe( campaigns => this.campaigns = campaigns);
   }
 
+  onClickCard(id: number) {
+    this.router.navigate(['/campaigns', id]);
+  }
 }
