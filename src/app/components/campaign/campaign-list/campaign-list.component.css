@@ -1,3 +1,5 @@
 #campaigns-container {
-  margin-top: 9vh;
+  margin: 9vh;
+  display: flex;
+  flex-wrap: wrap
 }
