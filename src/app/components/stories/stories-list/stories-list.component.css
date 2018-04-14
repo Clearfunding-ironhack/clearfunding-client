@@ -1,24 +1,62 @@
-.card-box {
-    display: flex;
-    margin-bottom: 20px; 
-    justify-content: center;
-    width: 350px;
+.stories-bucket{
+    max-width: 200px;
+    margin-right: 10px;
+    height: 250px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-.ui.card {
-    margin-bottom: 10px; 
-    width: 350px;
+.lateral-scroll{
+    max-width: 100%;
+  }
 
+.header{
+    height: 60px;
+    border-bottom-color: white
 }
 
-.feed {
+  .stories-feed{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap:wrap
+  }
+  
+  .nav {
+    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch
+  }
+  
+  .nav-list {
+    list-style: none;
+    white-space: nowrap;
+    padding-left: 0;
+    font-size: 20px;
+  }
+  
+  .nav-list li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .nav-list:last-child {
+    margin-right: 0;
+  }
+
+  .stories-container{
+      margin-top: 50px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      border-bottom-color: white
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
 }
 
-.card-bottom{
-    display: flex;
-    justify-content: space-between
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
 }
