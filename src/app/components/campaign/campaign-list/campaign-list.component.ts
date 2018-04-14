@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../../../shared/services/campaign.service';
-import { campaigns } from '../../../shared/data/campaigns.data';
 import { Campaign } from '../../../shared/models/campaign.model';
 import { Router } from '@angular/router';
 

@@ -1,6 +1,5 @@
 import { Campaign } from '../models/campaign.model';
 import { Injectable } from '@angular/core';
-import { campaigns } from '../data/campaigns.data';
 import { BaseApiService } from './base-api.service';
 import { environment } from '../../environments/environment';
 import { Http, Headers, RequestOptions, Response, RequestMethod } from '@angular/http';

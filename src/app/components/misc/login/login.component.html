@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+ <body>
+        <div class="box">
+            <h1 class='ui header' id="header-login">Login</h1>
+            <form>
+                <div class="inputBox">
+                    <input type="text" name="" required="">
+                    <label>email</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="" required="">
+                    <label>password</label>
+                </div>
+                <button class="ui blue inverted button" type='submit' id='submit-btn'>Submit</button>
+                <a href="#">Forgot your password?</a>
+                <div>
+                <p>Still not a user? <a [routerLink]="['/signup']">Sign up quickly! </a> </p>
+                </div>
+
+            </form>
+        </div>
+    </body>

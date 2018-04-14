@@ -16,6 +16,8 @@ import { StoriesListComponent } from './components/stories/stories-list/stories-
 import { StoriesItemComponent } from './components/stories/stories-item/stories-item.component';
 import './rxjs.operators';
 import { LoginComponent } from './components/misc/login/login.component';
+import { UsersService } from './shared/services/users.service';
+import { InterestsService } from './shared/services/interests.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { LoginComponent } from './components/misc/login/login.component';
   ],
   providers: [
     CampaignService,
-    StoriesService
+    StoriesService,
+    UsersService,
+    InterestsService
   ],
   bootstrap: [AppComponent]
 })

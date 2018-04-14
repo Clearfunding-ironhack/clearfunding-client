@@ -19,4 +19,17 @@ export class User {
   disbursedAmount?: Number;
   paymentTokens?: Array<string>;
   likedPublications?: Array<Story>;
+
+  public asFormData(): FormData {
+    const data = new FormData();
+    data.append('username', this.username);
+    data.append('email', this.email);
+    data.append('password', this.password);
+    data.append('interests', JSON.stringify(this.interests));
+    data.append('image', this.image);
+
+    return data;
+
+  }
 }
+
