@@ -18,6 +18,7 @@ import './rxjs.operators';
 import { LoginComponent } from './components/misc/login/login.component';
 import { UsersService } from './shared/services/users.service';
 import { InterestsService } from './shared/services/interests.service';
+import { SessionService } from './shared/services/session.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { InterestsService } from './shared/services/interests.service';
     CampaignService,
     StoriesService,
     UsersService,
-    InterestsService
+    InterestsService,
+    SessionService
   ],
   bootstrap: [AppComponent]
 })

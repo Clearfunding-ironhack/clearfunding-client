@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
   user: User = new User();
   apiError: string;
   interests: Array <string> = [];
+  selectedInterests: Array <string> = [];
 
   data: any;
 
@@ -40,6 +41,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmitSignup(form: NgForm): void {
+    this.user.interests = this.selectedInterests;
     this.usersService.create(this.user).subscribe(
       (user) => {
         form.reset();
@@ -53,21 +55,21 @@ export class SignupComponent implements OnInit {
 
   onAddInterest(event) {
     const newInterest = event.target.id;
-
-    if (this.user.interests.includes(newInterest)) {
-      this.user.interests = this.user.interests.filter(i => i !== newInterest);
+    if (this.selectedInterests.includes(newInterest)) {
+      this.selectedInterests.filter(i => i !== newInterest);
     } else {
-      this.user.interests.push(newInterest);
+      this.selectedInterests.push(newInterest);
     }
+    console.log(this.selectedInterests);
   }
 
   toggleVisibilityPassword() {
     this.showPassword = !this.showPassword;
   }
 
-  onFileChange(event) {
-    if (event.target.files.length > 0) {
-      this.data = event.target.files[0];
-    }
-  }
+//   onFileChange(event) {
+//     if (event.target.files.length > 0) {
+//       this.data = event.target.files[0];
+//     }
+//   }
 }

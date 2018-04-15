@@ -1,16 +1,29 @@
  <body>
         <div class="box">
             <h1 class='ui header' id="header-login">Login</h1>
-            <form>
+            <form  [formGroup]='loginForm' (ngSubmit)='onSubmitLogin(loginForm)'>
                 <div class="inputBox">
-                    <input type="text" name="" required="">
+                    <input 
+                        type="text"
+                        name=""
+                        formControlName="email"
+                        required="">
                     <label>email</label>
+                    <!-- <div class="ui negative message" *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter a valid email!</div> -->
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="" required="">
+                    <input
+                     type="password"
+                     name=""
+                     formControlName="password"
+                     required="">
                     <label>password</label>
+                    <div 
+                  class="ui negative message"
+                  *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter a valid password!
                 </div>
-                <button class="ui blue inverted button" type='submit' id='submit-btn'>Submit</button>
+                </div>
+                <button class="ui blue inverted button" type='submit' id='submit-btn' >Submit</button>
                 <a href="#">Forgot your password?</a>
                 <div>
                 <p>Still not a user? <a [routerLink]="['/signup']">Sign up quickly! </a> </p>

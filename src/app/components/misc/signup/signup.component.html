@@ -79,10 +79,10 @@
                  
                   <div id='show-interests' *ngFor="let interest of interests">
                     <a 
-                      [ngClass]="{
-                        inverted: selectedInterests.includes(interest),
-                        basic: !selectedInterests.includes(interest)
-                      }"
+                    [ngClass]="{
+                      inverted: selectedInterests.includes(interest),
+                      basic: !selectedInterests.includes(interest)
+                    }"
                       class="ui blue label interest" 
                       id="{{interest}}" 
                       (click)=onAddInterest($event)> 
