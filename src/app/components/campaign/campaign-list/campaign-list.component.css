@@ -32,6 +32,7 @@
   margin-bottom: 20px; 
   justify-content: center;
   width: 350px;
+  margin-right: 20px;
 }
 
 .ui.card {
@@ -57,7 +58,7 @@
 }
 
 #campaign-info{
-height: 350px
+height: 300px
 }
 
 .image-container{
@@ -70,13 +71,30 @@ img{
 
 .chart{
   width: 100%;
-  height: 20px;
-  background-color: violet;
+  height: 5px;
+  background-color: white;
   overflow: hidden;
   display: flex;
-
+  border: 2px grey;
+  
 }
 
 .drawing{
-  background-color: tomato;
+  background-color: green;
+}
+
+.description{
+padding-bottom: 20px
+}
+
+.target-text{
+  padding-bottom: 15px;
+}
+
+.figures{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  text-align: center
 }

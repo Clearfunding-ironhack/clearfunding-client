@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CampaignListComponent implements OnInit {
   campaigns: Array <Campaign> = [];
- 
+
 
 
   constructor(
@@ -26,10 +26,13 @@ export class CampaignListComponent implements OnInit {
     .subscribe( campaigns => {
       this.campaigns = campaigns;
       this.campaigns = this.campaigns.map((campaign) => {
-        if(campaign.target){
-        campaign.percentageRaised = (campaign.amountRaised * 100 / campaign.target) + '%';
-        } else {
-        campaign.percentageRaised = '0%';
+        if (campaign.target) {
+        const raisedNumber = (campaign.amountRaised * 100 / campaign.target);
+        const raisedRounded = raisedNumber.toFixed(0);
+        campaign.percentageRaised = raisedRounded + '%';
+        }
+        if (campaign.backers.length >= 1){ 
+         campaign.backersNumber = campaign.backers.length;
         }
         return campaign;
       });

@@ -36,17 +36,40 @@
                 <div class="content" id="campaign-info">
                   <div class="header">{{ campaign.title }}</div>
                   <div class="description"> {{ campaign.abstract }}</div>
-                  {{ campaign.percentageRaised }}
                 
-
-                </div>
+                  <div class="campagin-stats">
+                    <div class="target-text" *ngIf="campaign.percentageRaised;else campaign_beginning_raised">
+                        <h4>Ya hemos conseguido el {{ campaign.percentageRaised }} de la meta.</h4>
+                    </div>
+                    <ng-template #campaign_beginning_raised>Be the first one backign the project!</ng-template>
+       
+                  
+                  
                 <div class="chart">
+                  
                     <div class="drawing" [ngStyle]="{'width': campaign.percentageRaised}">
-
                     </div>
                   </div>
-                <div class="extra content card-bottom">
-                  <a class="time">{{ campaign.location }}</a>
+                
+                <div class="figures">
+                  <div *ngIf="campaign.backersNumber"class="figures-left" >
+                  <h5>{{ campaign.backersNumber}}</h5>
+                  <p>Contribuidores</p>
+                </div>
+                
+                <div *ngIf="campaign.isAchieved === false; else campaign_achieved">
+                <div class=figures-right>
+                    <h5>Quedan{{campaign.amountRaised}}€</h5>
+                    <p>de {{ campaign.target }}€</p>
+                  </div>
+                </div>
+                <ng-template #campaign_achieved>Achieved!</ng-template>
+
+                </div>
+
+
+
+                </div>
                 </div>
               </div>
             </div>

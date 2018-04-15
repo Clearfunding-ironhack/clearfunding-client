@@ -6,7 +6,7 @@ export class Campaign {
   image?: string;
   id?: string;
   amountRaised?: number;
-  // isAchieved?: boolean;
+  isAchieved?: boolean;
   // isAlmostAchieved?: boolean;
   // isCompleted?: boolean;
   // paymentInfo?: Array<string>;
@@ -18,6 +18,7 @@ export class Campaign {
   // paymentTokens?: Array<string>;
   creator?: User;
   percentageRaised?: string;
-  // backers?: Array<User>;
+  backers?: Array<User>;
+  backersNumber?: number;
   // followers?: Array<User>;
 }
