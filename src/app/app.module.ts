@@ -16,6 +16,7 @@ import { StoriesListComponent } from './components/stories/stories-list/stories-
 import { StoriesItemComponent } from './components/stories/stories-item/stories-item.component';
 import './rxjs.operators';
 import { LoginComponent } from './components/misc/login/login.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './components/misc/login/login.component';
     SignupComponent,
     StoriesListComponent,
     StoriesItemComponent,
-    LoginComponent
+    LoginComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

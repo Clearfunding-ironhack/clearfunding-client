@@ -31,12 +31,24 @@ export class CampaignListComponent implements OnInit {
         const raisedRounded = raisedNumber.toFixed(0);
         campaign.percentageRaised = raisedRounded + '%';
         }
-        if (campaign.backers.length >= 1){ 
+        if (campaign.backers.length >= 1) {
          campaign.backersNumber = campaign.backers.length;
         }
         return campaign;
       });
       console.log(this.campaigns);
+      const categories = [
+        'Science',
+        'Politics',
+        'Charity',
+        'Environment',
+        'LGTB',
+        'Animals',
+        'Nationalisms',
+        'Art',
+        'Technology'
+      ];
+      console.log(categories);
   });
 }
 

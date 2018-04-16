@@ -25,6 +25,7 @@ export class CampaignItemComponent implements OnInit {
     .data
     .subscribe(data => {
       this.campaign = data['campaign'];
+      console.log(this.campaign);
     });
   }
 }
