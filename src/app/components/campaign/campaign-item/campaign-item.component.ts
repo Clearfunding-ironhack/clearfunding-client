@@ -21,11 +21,15 @@ export class CampaignItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    console.log(this.routes.data)
     this.routes
     .data
     .subscribe(data => {
+      console.log(data)
       this.campaign = data['campaign'];
       console.log(this.campaign);
     });
   }
 }
+
