@@ -19,6 +19,8 @@ import { LoginComponent } from './components/misc/login/login.component';
 import { UsersService } from './shared/services/users.service';
 import { InterestsService } from './shared/services/interests.service';
 import { SessionService } from './shared/services/session.service';
+import { ForgotPasswordComponent } from './components/misc/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/misc/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SessionService } from './shared/services/session.service';
     SignupComponent,
     StoriesListComponent,
     StoriesItemComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

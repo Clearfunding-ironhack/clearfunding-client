@@ -12,11 +12,14 @@ import { SessionService } from '../../../shared/services/session.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  user: User = new User();
+  apiError: string;
 
 
-  constructor() {
-
-   }
+  constructor(
+    private sessionService: SessionService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -24,7 +27,18 @@ export class LoginComponent implements OnInit {
       'password': new FormControl(null, [Validators.required, Validators.minLength(8)])
     });
   }
-onSubmitLogin(form: NgForm): void {
-  console.log(this.loginForm);
+  onSubmitLogin(form: NgForm): void {
+    console.log(form);
+    this.sessionService.authenticate(this.user).subscribe(
+      (user) => {
+        form.reset();
+        this.router.navigate(['/campaigns']);
+      },
+      (error) => {
+        this.apiError = error.message;
+      }
+    );
+  }
+
 }
-}
+

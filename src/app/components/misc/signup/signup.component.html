@@ -1,45 +1,42 @@
-<div class="container" id="signup-container">
-    <div class="ui middle aligned center aligned grid">
-        <div class="column">
-          <h2 class="ui teal header">
-            <div class="content">
-             <h2> Welcome!</h2>
-            </div>
-          </h2>
-          <form class="ui large form" [formGroup]='signupForm' (ngSubmit)='onSubmitSignup(signupForm)'>
-            <div class="ui stacked segment">
-              <div class="field">
+<body>
+  <div class="box">
+      <h1 class='ui header' id="header-login">Join us!</h1>
+          <form [formGroup]='signupForm' (ngSubmit)='onSubmitSignup(signupForm)'>
+              <div class=" inputBox">
                 <div class="ui left icon input">
                   <i class="user icon"></i>
                   <input
                      type="text"
                      formControlName="username"
-                     [(ngModel)]="user.username"
-                     placeholder="Username">
+                     [(ngModel)]="user.username">
+                  <label>username</label>
+                  <div class="ui negative message" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
+                  >Please enter a valid username!
+                  </div>
                 </div>
-                <div class="ui negative message" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
-                     >Please enter a valid username!
-                </div>
+               
               </div>
-              <div class="field">
+              <div class="inputBox">
                   <div class="ui left icon input">
                     <i class="envelope outline icon"></i>
                     <input 
                       type="text" 
                       formControlName="email"
                       [(ngModel)]="user.email"
-                      placeholder="E-mail address">
+                      >
+                      <label>email</label>
                   </div>
                   <div class="ui negative message" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid email!</div>
                 </div>
-              <div class="field">
+              <div class="inputBox">
                 <div class="ui left icon input">
                   <i class="lock icon"></i>
                   <input 
                     [type]="showPassword? 'text' :'password'"
                     formControlName="password"
                     [(ngModel)]="user.password"
-                    placeholder="Password">
+                  >
+                  <label>password</label>
                     <button class="ui icon basic button" id='btn-visibility' type='button'(click)="toggleVisibilityPassword()">
                       <i class="eye icon"></i>
                     </button>
@@ -67,10 +64,10 @@
                   <input 
                     type="file" 
                     formControlName="image" 
-                    [(ngModel)]="user.image"
-                    (change)="onFileChange($event)"
                     id="imageFile"
-                    placeholder="Upload a profile pic">
+                    placeholder="Upload a profile pic"
+                    #imageFile  
+                  >
                 </div>
               </div>
                 
@@ -94,8 +91,8 @@
 
                 <button class="ui fluid blue button" type="submit" [disabled]="!signupForm.valid">Submit</button>
             
-              </div>
+           
 
             </form>
-
-  
+</div>
+</body>

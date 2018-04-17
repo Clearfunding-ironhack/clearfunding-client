@@ -25,7 +25,11 @@ export class User {
     data.append('username', this.username);
     data.append('email', this.email);
     data.append('password', this.password);
-    data.append('interests', JSON.stringify(this.interests));
+
+    for (let interest of this.interests) {
+      data.append('interests', interest);
+    }
+
     data.append('image', this.image);
 
     return data;

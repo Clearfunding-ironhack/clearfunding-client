@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Rx';
 import { User } from './../models/user.model';
-import { Http } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
 import { BaseApiService } from './base-api.service';
 import { Injectable } from '@angular/core';
 
@@ -13,7 +13,8 @@ export class UsersService extends BaseApiService {
   }
 
   create(user: User): Observable<User> {
-    return this.http.post(UsersService.USERS_API, user, BaseApiService.defaultOptions)
+    debugger;
+    return this.http.post(UsersService.USERS_API, user.asFormData(), new RequestOptions({ withCredentials: true }))
       .map(res => res.json())
       .catch(error => this.handleError(error));
   }

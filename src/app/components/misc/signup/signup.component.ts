@@ -19,6 +19,8 @@ export class SignupComponent implements OnInit {
   interests: Array <string> = [];
   selectedInterests: Array <string> = [];
 
+  @ViewChild('imageFile') imageFile;
+
   data: any;
 
   constructor(
@@ -41,7 +43,14 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmitSignup(form: NgForm): void {
+    const imageFile = this.imageFile.nativeElement;
+
     this.user.interests = this.selectedInterests;
+
+    if (imageFile.files && imageFile.files[0]) {
+      this.user.image = imageFile.files[0];
+    }
+
     this.usersService.create(this.user).subscribe(
       (user) => {
         form.reset();
@@ -55,12 +64,12 @@ export class SignupComponent implements OnInit {
 
   onAddInterest(event) {
     const newInterest = event.target.id;
+
     if (this.selectedInterests.includes(newInterest)) {
-      this.selectedInterests.filter(i => i !== newInterest);
+      this.selectedInterests = this.selectedInterests.filter(i => i !== newInterest);
     } else {
       this.selectedInterests.push(newInterest);
     }
-    console.log(this.selectedInterests);
   }
 
   toggleVisibilityPassword() {

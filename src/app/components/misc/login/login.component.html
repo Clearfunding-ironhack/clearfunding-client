@@ -7,7 +7,8 @@
                         type="text"
                         name=""
                         formControlName="email"
-                        required="">
+                        required=""
+                        [(ngModel)]="user.email">
                     <label>email</label>
                     <!-- <div class="ui negative message" *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter a valid email!</div> -->
                 </div>
@@ -16,7 +17,8 @@
                      type="password"
                      name=""
                      formControlName="password"
-                     required="">
+                     required=""
+                     [(ngModel)]="user.password">
                     <label>password</label>
                     <div 
                   class="ui negative message"
@@ -24,7 +26,7 @@
                 </div>
                 </div>
                 <button class="ui blue inverted button" type='submit' id='submit-btn' >Submit</button>
-                <a href="#">Forgot your password?</a>
+                <a [routerLink]="['/login/forgot']">Forgot your password?</a>
                 <div>
                 <p>Still not a user? <a [routerLink]="['/signup']">Sign up quickly! </a> </p>
                 </div>
