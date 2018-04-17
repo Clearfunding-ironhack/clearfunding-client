@@ -13,7 +13,7 @@ const PROVIDER = 'localhost:4200';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'login/forgot', component: ForgotPasswordComponent},
-  { path: 'sessions/reset/:token', component: ResetPasswordComponent}
+  { path: 'sessions/reset/:token', component: ResetPasswordComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'campaigns', component: CampaignListComponent},
   { path: 'campaigns/:id', component: CampaignItemComponent},
