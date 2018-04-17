@@ -1,5 +1,105 @@
-#campaigns-container {
-  margin: 9vh;
+.lateral-scroll{
+  max-width: 100%;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.nav {
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.nav-list {
+  list-style: none;
+  white-space: nowrap;
+  padding-left: 0;
+  font-size: 20px;
+}
+
+.nav-list li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.nav-list:last-child {
+  margin-right: 0;
+}
+
+.card-box {
   display: flex;
-  flex-wrap: wrap
+  margin-bottom: 20px; 
+  justify-content: center;
+  width: 350px;
+  margin-right: 20px;
+}
+
+.ui.card {
+  margin-bottom: 10px; 
+  width: 350px;
+
+}
+
+.feed {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-bottom{
+  display: flex;
+  justify-content: space-between
+}
+
+.lateral-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+#campaign-info{
+height: 300px
+}
+
+.image-container{
+  height: 300px
+}
+
+img{
+  height: 200px
+}
+
+.chart{
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  border: 2px grey;
+  
+}
+
+.drawing{
+  background-color: green;
+}
+
+.description{
+padding-bottom: 20px
+}
+
+.target-text{
+  padding-bottom: 15px;
+}
+
+.figures{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  text-align: center
+}
+
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
 }

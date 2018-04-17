@@ -22,6 +22,7 @@ import { SessionService } from './shared/services/session.service';
 import { ForgotPasswordComponent } from './components/misc/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/misc/reset-password/reset-password.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

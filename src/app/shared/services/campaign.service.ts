@@ -22,26 +22,13 @@ export class CampaignService extends BaseApiService {
 
   getCampaign(id: string): Observable<Campaign> {
     return this.http.get(`${CampaignService.CAMPAIGNS_API}/${id}`, BaseApiService.defaultOptions)
-      .map((res: Response) => res.json())
-      .catch(error => this.handleError(error));
+      .map((res: Response) => {
+        console.log("entro al res de getCampaign")
+        res.json()}
+      )
+      .catch(error =>{
+        console.log("entro al catch de getCampaign")
+      this.handleError(error))
+      };
   }
-
 }
-
-
-// @Injectable()
-// export class CampaignsService {
-//   campaigns: Array <Campaign> = campaigns;
-//   constructor() { }
-
-//   listCampaigns(): Array<Campaign> {
-//    return campaigns;
-//   }
-
-//   getCampaign(id: string): Campaign {
-//     console.log(campaigns.find(campaign => campaign.id === id));
-//     return campaigns.find(campaign => campaign.id === id);
-//    }
-
-
-// }
