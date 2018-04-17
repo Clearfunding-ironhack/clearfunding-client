@@ -1,3 +1,97 @@
-input.ng-invalid.ng-touched {
-  border: 1px solid red;
+body {
+	margin: 0;
+	padding: 0;
+	background: url('https://images.unsplash.com/20/bw-room.JPG?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5485a3646fd0e8668a1eb576e61995b1&auto=format&fit=crop&w=800&q=80');
+	background-size: cover;
+}
+
+.box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	padding: 40px;
+	background: rgba(0,0,0,.8);
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,.2);
+	border-radius: 10px;
+}
+.box h1{
+	margin: 0 0 30px;
+	padding: 0;
+	color: #fff;
+	color: #03a9f4;
+	text-align: center;
+}
+
+.box .inputBox {
+	position: relative;
+}
+
+/* input.ng-invalid.ng-touched {
+  border: 1px solid#03a9f4;
+} */
+
+.box .inputBox input {
+	width: 100%;
+	padding: 10px 0;
+	font-weight: lighter;
+	color: #fff;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background: transparent;
+}
+
+.box .inputBox label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	pointer-events: none;
+	transition: .5s; 
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label {
+	top: -30px;
+	left: 0;
+	color: #03a9f4;
+	font-size: 13px;
+	font-weight: bold;
+}
+.box .inputBox input:focus,
+.box .inputBox input:valid {
+	border-bottom: 2px solid #03a9f4; 
+}
+
+
+#show-interests {
+  display: inline;
+}
+
+.box a
+{
+	font-size: 14px;
+	text-decoration: none; 
+	margin: 2, 30;
+}
+
+h2 {
+  color: #03a9f4;
+}
+
+
+
+
+.icon {
+	color: #03a9f4;
+}
+
+.ui.input > input {
+	border-radius: 0;
 }

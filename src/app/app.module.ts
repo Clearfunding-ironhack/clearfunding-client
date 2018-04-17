@@ -16,7 +16,12 @@ import { StoriesListComponent } from './components/stories/stories-list/stories-
 import { StoriesItemComponent } from './components/stories/stories-item/stories-item.component';
 import './rxjs.operators';
 import { LoginComponent } from './components/misc/login/login.component';
-import { FilterPipe } from './filter.pipe';
+import { UsersService } from './shared/services/users.service';
+import { InterestsService } from './shared/services/interests.service';
+import { SessionService } from './shared/services/session.service';
+import { ForgotPasswordComponent } from './components/misc/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/misc/reset-password/reset-password.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +33,8 @@ import { FilterPipe } from './filter.pipe';
     StoriesListComponent,
     StoriesItemComponent,
     LoginComponent,
-    FilterPipe
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,10 @@ import { FilterPipe } from './filter.pipe';
   ],
   providers: [
     CampaignService,
-    StoriesService
+    StoriesService,
+    UsersService,
+    InterestsService,
+    SessionService
   ],
   bootstrap: [AppComponent]
 })
