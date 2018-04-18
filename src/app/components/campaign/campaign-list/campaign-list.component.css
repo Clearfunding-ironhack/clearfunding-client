@@ -100,6 +100,6 @@ padding-bottom: 20px
 }
 
 ::-webkit-scrollbar-thumb {
-  background: red; 
+  background: #04c4f4;
   border-radius: 10px;
 }

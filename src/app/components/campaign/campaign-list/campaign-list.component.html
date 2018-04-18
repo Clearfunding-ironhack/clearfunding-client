@@ -1,17 +1,20 @@
 <app-stories-list></app-stories-list>
 
+
+
+<!-- <div id='show-interests' *ngFor="let interest of interests">
+  <a [ngClass]="{
+            inverted: selectedInterests.includes(interest),
+            basic: !selectedInterests.includes(interest)
+          }" class="ui blue label interest" id="{{interest}}" (click)=onAddInterest($event)>
+    {{interest}}
+  </a>
+</div> -->
+
 <div class="lateral-scroll">
     <nav class="nav">
         <ul class="nav-list">
-          <li>Science</li>
-          <li>Politics</li>
-          <li>Charity</li>
-          <li>Enviroment</li>
-          <li>LGTB</li>
-          <li>Animals</li>
-          <li>Nationalisms</li>
-          <li>Art</li>
-          <li>Technology</li>
+          <li *ngFor="let category of categories | filterCategory:selectedCategory" id="{{category}}" (click)=onFilterCategory($event)>{{category}}</li>
         </ul>
       </nav>
     </div>

@@ -1,4 +1,4 @@
-
+import { InterestsService } from './../../../shared/services/interests.service';
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../../../shared/services/campaign.service';
 import { Campaign } from '../../../shared/models/campaign.model';
@@ -12,15 +12,19 @@ import { Router } from '@angular/router';
 })
 export class CampaignListComponent implements OnInit {
   campaigns: Array <Campaign> = [];
-
-
+  
+  categories: Array <string> = [];
 
   constructor(
     private router: Router,
-    private campaignsService: CampaignService
+    private campaignsService: CampaignService,
+    private interestsService: InterestsService
   ) { }
 
+
   ngOnInit() {
+    this.categories = this.interestsService.getInterests();
+    console.log(this.categories);
     this.campaignsService.listCampaigns()
     // tslint:disable-next-line:no-shadowed-variable
     .subscribe( campaigns => {
@@ -36,23 +40,15 @@ export class CampaignListComponent implements OnInit {
         }
         return campaign;
       });
-      console.log(this.campaigns);
-      const categories = [
-        'Science',
-        'Politics',
-        'Charity',
-        'Environment',
-        'LGTB',
-        'Animals',
-        'Nationalisms',
-        'Art',
-        'Technology'
-      ];
-      console.log(categories);
   });
 }
 
   onClickCard(id: number) {
     this.router.navigate(['/campaigns', id]);
   }
+
+  onFilterCategory(event){
+    const selectedCategory = event.target.id;
+    console.log(selectedCategory)
+    }
 }
