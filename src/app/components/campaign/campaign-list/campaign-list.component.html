@@ -14,7 +14,7 @@
 <div class="lateral-scroll">
     <nav class="nav">
         <ul class="nav-list">
-          <li *ngFor="let category of categories | filterCategory:selectedCategory" id="{{category}}" (click)=onFilterCategory($event)>{{category}}</li>
+          <li *ngFor="let category of categories" id="{{category}}" (click)=onFilterCategory($event)>{{category}}</li>
         </ul>
       </nav>
     </div>

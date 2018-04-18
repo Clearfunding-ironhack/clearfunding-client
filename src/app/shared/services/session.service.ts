@@ -70,4 +70,8 @@ forgotPassword(email: string) {
   .catch(error => this.handleError(error));
 }
 
+resetPassword(password: string, token: string){
+  console.log(password)
+  console.log(token)
+}
 }

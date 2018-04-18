@@ -22,7 +22,7 @@ import { SessionService } from './shared/services/session.service';
 import { ForgotPasswordComponent } from './components/misc/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/misc/reset-password/reset-password.component';
 import { ProfileComponent } from './components/misc/profile/profile.component';
-import { FilterCategoryPipe } from './filter-category.pipe';
+// import { FilterCategoryPipe } from './filter-category.pipe';
 
 
 @NgModule({
@@ -37,8 +37,8 @@ import { FilterCategoryPipe } from './filter-category.pipe';
     LoginComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    ProfileComponent,
-    FilterCategoryPipe
+    ProfileComponent
+    // FilterCategoryPipe
   ],
   imports: [
     BrowserModule,
