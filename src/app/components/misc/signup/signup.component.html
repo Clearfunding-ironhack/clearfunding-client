@@ -1,98 +1,89 @@
 <body>
   <div class="box">
-      <h1 class='ui header' id="header-login">Join us!</h1>
-          <form [formGroup]='signupForm' (ngSubmit)='onSubmitSignup(signupForm)'>
-              <div class=" inputBox">
-                <div class="ui left icon input">
-                  <i class="user icon"></i>
-                  <input
-                     type="text"
-                     formControlName="username"
-                     [(ngModel)]="user.username">
-                  <label>username</label>
-                  <div class="ui negative message" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
-                  >Please enter a valid username!
-                  </div>
-                </div>
-               
-              </div>
-              <div class="inputBox">
-                  <div class="ui left icon input">
-                    <i class="envelope outline icon"></i>
-                    <input 
-                      type="text" 
-                      formControlName="email"
-                      [(ngModel)]="user.email"
-                      >
-                      <label>email</label>
-                  </div>
-                  <div class="ui negative message" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid email!</div>
-                </div>
-              <div class="inputBox">
-                <div class="ui left icon input">
-                  <i class="lock icon"></i>
-                  <input 
-                    [type]="showPassword? 'text' :'password'"
-                    formControlName="password"
-                    [(ngModel)]="user.password"
-                  >
-                  <label>password</label>
-                    <button class="ui icon basic button" id='btn-visibility' type='button'(click)="toggleVisibilityPassword()">
-                      <i class="eye icon"></i>
-                    </button>
-                </div>
-                <div 
-                  class="ui negative message"
-                  *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">Please enter a valid password!
-                </div>
+    <h1 class='ui header' id="header-login">Join us!</h1>
+    <p><span id="required-fields">(Fields with an * are required)</span></p>
+    <form [formGroup]='signupForm' (ngSubmit)='onSubmitSignup(signupForm)'>
+      <div class=" inputBox">
+        <div class="ui left icon input bar">
+          <i class="user icon"></i>
+          <input type="text" formControlName="username" required="" [(ngModel)]="user.username">
+          <label>username
+            <span class="asterisk">*</span>
+          </label>
+        </div>
 
-              </div>
-              <!-- <div class="field">
-                  <div class="ui left icon input">
-                    <i class="lock icon"></i>
-                    <input
-                      [type]="showPassword? 'text' : 'password'"
-                       formControlName="confirmPassword"
-                       placeholder="Confirm Password">
-                       
-                  </div>
-                </div>
-               -->
-               <div class="field">
-                <div class="ui left icon input">
-                  <i class="upload icon"></i>
-                  <input 
-                    type="file" 
-                    formControlName="image" 
-                    id="imageFile"
-                    placeholder="Upload a profile pic"
-                    #imageFile  
-                  >
-                </div>
-              </div>
-                
-              <div class="field" formArrayName="interests">
-                  <p><strong>Select your interests</strong> </p>
-                 
-                  <div id='show-interests' *ngFor="let interest of interests">
-                    <a 
-                    [ngClass]="{
-                      inverted: selectedInterests.includes(interest),
-                      basic: !selectedInterests.includes(interest)
-                    }"
-                      class="ui blue label interest" 
-                      id="{{interest}}" 
-                      (click)=onAddInterest($event)> 
-                        {{interest}} 
-                    </a>
-                  </div>
+        <div class="ui blue message" id="error" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">Minimum length: 4 characters</div>
+      </div>
 
-                </div>
+      <div class="inputBox">
+        <div class="ui left icon input bar">
+          <i class="envelope outline icon"></i>
+          <input type="text" formControlName="email" required="" [(ngModel)]="user.email">
+          <label>email
+              <span class="asterisk">*</span>
+          </label>
+        </div>
+        <div class="ui blue message" id="error2" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid email!</div>
+      </div>
+      <div class="inputBox">
+        <div class="ui left icon input bar">
+          <i class="lock icon"></i>
+          <input [type]="showPassword? 'text' :'password'" formControlName="password" required="" [(ngModel)]="user.password">
+          <label>password
+              <span class="asterisk">*</span>
+          </label>
+          <button class="ui icon basic button" id='btn-visibility' type='button' (click)="toggleVisibilityPassword()">
+            <i class="eye icon"></i>
+          </button>
+        </div>
+        <div class="ui blue message" id="error3" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">Minimum length: 8 characters
+        </div>
 
-                <button class="ui fluid blue button" type="submit" [disabled]="!signupForm.valid">Submit</button>
-            
-           
+      </div>
+      <div class="inputBox">
+        <div class="ui left icon input bar">
+          <i class="lock icon"></i>
+          <input [type]="showPassword? 'text' :'password'" formControlName="confirmPassword" required="">
+          <label>Confirm password
+              <span class="asterisk">*</span>
+          </label>
+          <button class="ui icon basic button" type='button' (click)="toggleVisibilityPassword()">
+            <i class="eye icon"></i>
+          </button>
+        </div>
+        <div class="ui blue message" id="error4" *ngIf="!signupForm.get('confirmPassword').valid && signupForm.get('confirmPassword').touched">Passwords don't match!
+        </div>
 
-            </form>
-</div>
+      </div>
+
+      <div class="field">
+        <div class="ui left icon input bar" id='upload-input'>
+          <i class="upload icon"></i>
+          <input type="file" formControlName="image" id="imageFile" placeholder="Upload a profile pic" #imageFile>
+        </div>
+      </div>
+
+      <div class="field" id='interest-field' formArrayName="interests">
+        <p>
+          Select your interests<span class="asterisk">*</span>: <br>
+          <span>(Don't worry, you'd be able to change them later!)</span>
+        </p>
+
+        <div id='show-interests' *ngFor="let interest of interests">
+          <a [ngClass]="{
+                    inverted: selectedInterests.includes(interest),
+                    basic: !selectedInterests.includes(interest)
+                  }" class="ui blue label interest" id="{{interest}}" (click)=onAddInterest($event)>
+            {{interest}}
+          </a>
+        </div>
+
+      </div>
+
+      <button class="ui fluid blue button" type="submit" id="submit-signup" [disabled]="!signupForm.valid">Submit</button>
+
+
+
+    </form>
+  </div>
 </body>

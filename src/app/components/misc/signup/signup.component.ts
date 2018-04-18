@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
       'username': new FormControl(null, [Validators.required, Validators.minLength(4)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      // 'confirmPassword': new FormControl(null, Validators.required),
+      'confirmPassword': new FormControl(null, [ this.comparePassword.bind( this ) ]),
       'interests': new FormArray([]),
       'image': new FormControl()
 
@@ -74,6 +74,16 @@ export class SignupComponent implements OnInit {
 
   toggleVisibilityPassword() {
     this.showPassword = !this.showPassword;
+  }
+
+  comparePassword(control: FormControl): { [s: string]: boolean } {
+
+    if (control.value !== this.user.password) {
+      return { passwords: true };
+    }
+
+    return null;
+
   }
 
 //   onFileChange(event) {

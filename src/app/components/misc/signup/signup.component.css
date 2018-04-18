@@ -18,7 +18,7 @@ body {
 	border-radius: 10px;
 }
 .box h1{
-	margin: 0 0 30px;
+	margin: 0 0 4px;
 	padding: 0;
 	color: #fff;
 	color: #03a9f4;
@@ -48,12 +48,13 @@ body {
 .box .inputBox label {
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 2.5em;
 	padding: 10px 0;
 	font-size: 16px;
 	color: #fff;
 	pointer-events: none;
 	transition: .5s; 
+	
 }
 
 .box .inputBox input:focus ~ label,
@@ -82,7 +83,11 @@ body {
 }
 
 h2 {
-  color: #03a9f4;
+	color: #03a9f4;
+}
+
+#submit-signup {
+	margin-top: 1.5em;
 }
 
 
@@ -94,4 +99,62 @@ h2 {
 
 .ui.input > input {
 	border-radius: 0;
+}
+
+#upload-input {
+	width: 100%;
+}
+
+input {
+	width: 100%;
+}
+
+#imageFile {
+	border-radius: 0.28571429rem;
+}
+
+.input.bar {
+	width: 100%;
+}
+
+#error,
+#error2,
+#error3,
+#error4 {
+	margin-bottom: 1.5em;
+}
+
+
+
+.ui.icon.input > i.icon {
+	height: 50%;
+}
+
+p {
+	color: #03a9f4;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+span {
+	font-size: 12px;
+	font-weight: lighter;
+}
+
+#upload-input > i.icon {
+	height: 90%;
+	opacity: 1;
+}
+
+#interest-field {
+	margin-top: 1.5em;
+}
+
+.asterisk {
+	font-size: 1.2em;
+	color: #03a9f4;
+}
+
+#required-fields {
+	padding-left: 26%;
 }

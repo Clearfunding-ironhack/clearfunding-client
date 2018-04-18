@@ -13,7 +13,6 @@ export class UsersService extends BaseApiService {
   }
 
   create(user: User): Observable<User> {
-    debugger;
     return this.http.post(UsersService.USERS_API, user.asFormData(), new RequestOptions({ withCredentials: true }))
       .map(res => res.json())
       .catch(error => this.handleError(error));
