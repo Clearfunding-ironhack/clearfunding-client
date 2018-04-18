@@ -1,4 +1,4 @@
-import { campaigns } from './../../../shared/data/campaigns.data';
+
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../../../shared/services/campaign.service';
 import { Campaign } from '../../../shared/models/campaign.model';
