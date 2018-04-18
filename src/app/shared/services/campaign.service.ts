@@ -27,8 +27,8 @@ export class CampaignService extends BaseApiService {
         res.json()}
       )
       .catch(error =>{
-        console.log("entro al catch de getCampaign")
-      this.handleError(error)
+      console.log("entro al catch de getCampaign");
+      this.handleError(error))
       };
   }
 }

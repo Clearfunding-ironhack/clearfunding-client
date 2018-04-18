@@ -7,6 +7,7 @@ import { StoriesListComponent } from './components/stories/stories-list/stories-
 import { StoriesItemComponent } from './components/stories/stories-item/stories-item.component';
 import { ForgotPasswordComponent } from './components/misc/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/misc/reset-password/reset-password.component';
+import { ProfileComponent } from './components/misc/profile/profile.component';
 const PROVIDER = 'localhost:4200';
 
 
@@ -18,5 +19,6 @@ export const routes: Routes = [
   { path: 'campaigns', component: CampaignListComponent},
   { path: 'campaigns/:id', component: CampaignItemComponent},
   { path: 'stories', component: StoriesListComponent },
-  { path: 'stories/:id', component: StoriesItemComponent }
+  { path: 'stories/:id', component: StoriesItemComponent },
+  { path: 'profile', component: ProfileComponent}
 ];
