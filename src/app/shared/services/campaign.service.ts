@@ -22,11 +22,9 @@ export class CampaignService extends BaseApiService {
 
   getCampaign(id: string): Observable<Campaign> {
     return this.http.get(`${CampaignService.CAMPAIGNS_API}/${id}`, BaseApiService.defaultOptions)
-      .map((res: Response) => {res.json()}
-      )
-      .catch(error => 
-      this.handleError(error));
-      }
+      .map((res: Response) => res.json())
+      .catch(error => this.handleError(error));
   }
-
+  
+}
 

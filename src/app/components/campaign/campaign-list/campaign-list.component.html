@@ -14,14 +14,14 @@
 <div class="lateral-scroll">
     <nav class="nav">
         <ul class="nav-list">
-          <li *ngFor="let category of categories" id="{{category}}" (click)=onFilterCategory($event)>{{category}}</li>
+          <li *ngFor="let category of categories" (click)=onClickCategory(category)>{{ category }}</li>
         </ul>
       </nav>
     </div>
 
 
     <div class="feed">
-        <div *ngFor="let campaign of campaigns">
+        <div *ngFor="let campaign of campaigns | filterCampaings:category">
           <div class="card-box">
             <div class="ui card" (click)="onClickCard(campaign.id)">
                 <div class="image">
@@ -29,6 +29,7 @@
                     <div class="content">
                       <div class="center">
                         <div class="ui teal button">Add Friend</div>
+
                       </div>
                     </div>
                   </div>
@@ -56,6 +57,7 @@
                   <div *ngIf="campaign.backersNumber"class="figures-left" >
                   <h5>{{ campaign.backersNumber}}</h5>
                   <p>Contribuidores</p>
+                  <a [routerLink]="['/campaigns', campaign.id]"> View Details </a>
                 </div>
                 
                 <div *ngIf="campaign.isAchieved === false; else campaign_achieved">

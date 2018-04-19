@@ -12,8 +12,7 @@ import { Observable } from 'rxjs/Rx';
   styleUrls: ['./campaign-item.component.css']
 })
 export class CampaignItemComponent implements OnInit {
-  campaign: Campaign;
-  campaignId: string;
+  campaign: Campaign = new Campaign();
   error: Object;
 
   constructor(
@@ -23,15 +22,15 @@ export class CampaignItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log(this.routes.snapshot.params['id']);
-    this.routes.params
+    this.routes
+      .params
       .subscribe(
        (params: Params) => {
-         this.campaignId = params['id'];
-         this.campaign = this.campaignsService.getCampaign(this.campaignId);
-       }
-      );
+         this.campaignsService.getCampaign(params['id'])
+         .subscribe(campaign => {
+           console.log(`this is campaign ${campaign}`);
+           this.campaign = campaign;
+          });
+      });
   }
-  }
-
-
+}

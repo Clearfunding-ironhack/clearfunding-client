@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Campaign } from './shared/models/campaign.model';
 
 @Pipe({
-  name: 'filter'
+  name: 'filterCampaings'
 })
 export class FilterPipe implements PipeTransform {
 
-
-  transform(value: any, args?: any): any {
-    return null;
+  transform(values: Campaign[], category: string): Campaign[] {
+    return (category !== 'all') ? values.filter(c => c.categories.includes(category)) : values;
   }
 
 }

@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class CampaignListComponent implements OnInit {
   campaigns: Array <Campaign> = [];
-  
   categories: Array <string> = [];
+  category: string = 'all';
 
   constructor(
     private router: Router,
@@ -24,7 +24,6 @@ export class CampaignListComponent implements OnInit {
 
   ngOnInit() {
     this.categories = this.interestsService.getInterests();
-    console.log(this.categories);
     this.campaignsService.listCampaigns()
     // tslint:disable-next-line:no-shadowed-variable
     .subscribe( campaigns => {
@@ -47,8 +46,8 @@ export class CampaignListComponent implements OnInit {
     this.router.navigate(['/campaigns', id]);
   }
 
-  onFilterCategory(event){
-    const selectedCategory = event.target.id;
-    console.log(selectedCategory)
-    }
+  onClickCategory(category: string) {
+    this.category = category;
+  }
+
 }

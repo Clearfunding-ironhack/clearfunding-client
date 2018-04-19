@@ -16,10 +16,8 @@ export const routes: Routes = [
   { path: 'login/forgot', component: ForgotPasswordComponent},
   { path: 'sessions/reset/:token', component: ResetPasswordComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'campaigns', component: CampaignListComponent,
-    children: [
-      { path: ':id', component: CampaignItemComponent}
-    ] },
+  { path: 'campaigns', component: CampaignListComponent},
+  { path: 'campaigns/:id', component: CampaignItemComponent},
   { path: 'stories', component: StoriesListComponent },
   { path: 'stories/:id', component: StoriesItemComponent },
   { path: 'profile', component: ProfileComponent}

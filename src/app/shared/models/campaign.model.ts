@@ -3,7 +3,7 @@ import { User } from '../models/user.model';
 export class Campaign {
   title: string;
   target: number;
-  image?: string;
+  image?: string = 'http://via.placeholder.com/350x150';
   id?: string;
   amountRaised?: number;
   isAchieved?: boolean;
