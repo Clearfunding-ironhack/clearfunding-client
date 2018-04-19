@@ -23,6 +23,8 @@ import { ForgotPasswordComponent } from './components/misc/forgot-password/forgo
 import { ResetPasswordComponent } from './components/misc/reset-password/reset-password.component';
 import { ProfileComponent } from './components/misc/profile/profile.component';
 import { FilterPipe } from './filter.pipe';
+import { HomeComponent } from './components/home/home.component';
+import { PaymentService } from './shared/services/payment.service';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { FilterPipe } from './filter.pipe';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     ProfileComponent,
-    FilterPipe
+    FilterPipe,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { FilterPipe } from './filter.pipe';
     StoriesService,
     UsersService,
     InterestsService,
-    SessionService
+    SessionService,
+    PaymentService
   ],
   bootstrap: [AppComponent]
 })

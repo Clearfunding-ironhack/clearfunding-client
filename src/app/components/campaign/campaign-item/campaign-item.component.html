@@ -1,11 +1,15 @@
 
 
 <h1>{{ campaign.title }}</h1>
-<img [src]="campaign.image" *ngIf="campaign.image">
+
+<div id='campaign-image-div'>
+  <img [src]="campaign.image" *ngIf="campaign.image">
+</div>
+
 <h1>{{ campaign.title }}</h1>
 
 
-<p>Created by: Barb</p>
+<p>Created by: {{ campaign.creator}}</p>
 
     <i class="tags icon"></i>
     {{campaign.categories}}
@@ -43,6 +47,23 @@
 
 <p>{{ campaign.description }}</p>
 
+<button class="ui basic blue button" (click)='toggleVisibilityInputPayment()'>
+
+  DONATE NOW!
+</button>
+
+<form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm"*ngIf="inputPaymentOpened === true">
+    <div class="ui right labeled input">
+        <label for="amount" class="ui label">$</label>
+        <input [(ngModel)]="amount" type="text" placeholder="Amount" name='amount' id="amount" >
+        <div class="ui basic label">.00</div>
+    </div>
+    <button class="ui basic blue button" type="button">Go to paypal</button>
+
+</form >
+
+
+
 <ul class="ui ten wide column horizontal list" id='icon-list'>
    
     <div class="item">
@@ -59,12 +80,6 @@
        
     </div>
 
-    <div class="ui bottom fixed inverted menu" id='footer'>
-    DONATE
-    <div class="ui right labeled input">
-      <label for="amount" class="ui label">$</label>
-      <input type="text" placeholder="Amount" id="amount">
-      <div class="ui basic label">.00</div>
-    </div>
-    </div>
+
+    
   
