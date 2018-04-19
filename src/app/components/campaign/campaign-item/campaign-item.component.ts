@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Campaign } from '../../../shared/models/campaign.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { CampaignService } from '../../../shared/services/campaign.service';
+import { Observable } from 'rxjs/Rx';
 
 
 
@@ -11,7 +12,8 @@ import { CampaignService } from '../../../shared/services/campaign.service';
   styleUrls: ['./campaign-item.component.css']
 })
 export class CampaignItemComponent implements OnInit {
-  campaign: Campaign = new Campaign();
+  campaign: Campaign;
+  campaignId: string;
   error: Object;
 
   constructor(
@@ -21,15 +23,15 @@ export class CampaignItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    console.log(this.routes.data)
-    this.routes
-    .data
-    .subscribe(data => {
-      console.log(data)
-      this.campaign = data['campaign'];
-      console.log(this.campaign);
-    });
+    // console.log(this.routes.snapshot.params['id']);
+    this.routes.params
+      .subscribe(
+       (params: Params) => {
+         this.campaignId = params['id'];
+         this.campaign = this.campaignsService.getCampaign(this.campaignId);
+       }
+      );
   }
-}
+  }
+
 

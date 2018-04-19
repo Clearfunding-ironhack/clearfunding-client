@@ -13,6 +13,8 @@ export class ResetPasswordComponent implements OnInit {
 
   resetForm: FormGroup;
   user: User = new User();
+  token: String = "";
+  showPassword: boolean = false;
 
   constructor(
     private sessionService: SessionService,
@@ -28,14 +30,16 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   onSubmitReset(form: NgForm) {
-    console.log(this.routes.params)
-    const token = this.routes.params
-    this.routes
-    .params
-    .subscribe(params => {
-      this.sessionService
-        .resetPassword(form.value.password, params['id']);
-      });
+    const token = this.routes.snapshot.params['token'];
+    const password = form.value.password;
+    this.sessionService.resetPassword(password, token). subscribe(
+      () => {
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+       console.log(error);
+      }
+    );
   }
 
   comparePassword(control: FormControl): { [s: string]: boolean } {
@@ -44,4 +48,11 @@ export class ResetPasswordComponent implements OnInit {
     }
     return null;
   }
+
+
+
+toggleVisibilityPassword() {
+  this.showPassword = !this.showPassword;
+}
+
 }

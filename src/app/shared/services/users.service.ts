@@ -17,5 +17,9 @@ export class UsersService extends BaseApiService {
       .map(res => res.json())
       .catch(error => this.handleError(error));
   }
-
+  get(id): Observable<User> {
+    return this.http.get(`${UsersService.USERS_API}/${id}`, BaseApiService.defaultOptions)
+      .map(res => res.json())
+      .catch(error => this.handleError(error));
+  }
 }

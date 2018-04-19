@@ -61,6 +61,7 @@ protected doLogout(): void {
   this.notifyUserChanges();
 }
 
+
 private notifyUserChanges() {
   this.userSubject.next(this.user);
 }
@@ -71,7 +72,9 @@ forgotPassword(email: string) {
 }
 
 resetPassword(password: string, token: string){
-  console.log(password)
-  console.log(token)
+  console.log(password);
+  console.log(token);
+  return this.http.post(`${SessionService.SESSION_API}/reset/${token}`, {password: password}, BaseApiService.defaultOptions)
+  .catch(error => this.handleError(error));
 }
 }
