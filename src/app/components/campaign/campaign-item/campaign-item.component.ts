@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { CampaignService } from '../../../shared/services/campaign.service';
 import { Observable } from 'rxjs/Rx';
 import { NgForm } from '@angular/forms';
+import { PaymentService } from '../../../shared/services/payment.service';
 
 
 
@@ -20,7 +21,8 @@ export class CampaignItemComponent implements OnInit {
   constructor(
     private router: Router,
     private routes: ActivatedRoute,
-    private campaignsService: CampaignService
+    private campaignsService: CampaignService,
+    private paymentService: PaymentService
   ) { }
 
   ngOnInit() {
@@ -36,9 +38,18 @@ export class CampaignItemComponent implements OnInit {
       });
   }
   makePayment(id: string, form: NgForm) {
-    console.log(id);
-    console.log(form);
-    // const campaignId = this.routes.snapshot.params['id'];
+    const campaignId = id;
+    const amount = form.value.amount;
+    this.paymentService.makePayment(campaignId, amount).subscribe(
+      (user) => {
+        form.reset();
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
   }
 
   toggleVisibilityInputPayment(){
