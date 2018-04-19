@@ -4,6 +4,7 @@ import { UsersService } from './../../../shared/services/users.service';
 import { SessionService } from './../../../shared/services/session.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from '../../../shared/models/user.model';
+import { FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
   // tslint:disable-next-line:no-inferrable-types
   latchActivated: Boolean = false;
-  
+  latchForm;
+  code: String;
 
   constructor(
     private sessionService: SessionService,
@@ -41,8 +43,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.userSubscription = this.sessionService.onUserChanges()
           .subscribe(user => this.user = user);
         }
-
-      });
+        this.latchForm = new FormGroup({
+          code: new FormControl('', Validators.required)
+        });
+      }
+    );
     }
 
   ngOnDestroy() {
@@ -52,5 +57,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
   this.latchActivated = !this.latchActivated;
  }
 
+ pair(latchForm: NgForm) {
+  this.usersService.pair(this.code, this.user).subscribe(
+    (user) => {
+      this.latchForm.reset();
+      this.user.paired = true;
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
 }
 
+}
