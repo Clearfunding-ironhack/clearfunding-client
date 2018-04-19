@@ -8,10 +8,13 @@ import { StoriesItemComponent } from './components/stories/stories-item/stories-
 import { ForgotPasswordComponent } from './components/misc/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/misc/reset-password/reset-password.component';
 import { ProfileComponent } from './components/misc/profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
 const PROVIDER = 'localhost:4200';
 
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'login/forgot', component: ForgotPasswordComponent},
   { path: 'sessions/reset/:token', component: ResetPasswordComponent},

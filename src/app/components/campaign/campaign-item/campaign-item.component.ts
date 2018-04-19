@@ -3,6 +3,7 @@ import { Campaign } from '../../../shared/models/campaign.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { CampaignService } from '../../../shared/services/campaign.service';
 import { Observable } from 'rxjs/Rx';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -14,6 +15,7 @@ import { Observable } from 'rxjs/Rx';
 export class CampaignItemComponent implements OnInit {
   campaign: Campaign = new Campaign();
   error: Object;
+  inputPaymentOpened: boolean = false;
 
   constructor(
     private router: Router,
@@ -33,4 +35,17 @@ export class CampaignItemComponent implements OnInit {
           });
       });
   }
+  makePayment(id: string, form: NgForm) {
+    console.log(id);
+    console.log(form);
+    // const campaignId = this.routes.snapshot.params['id'];
+  }
+
+  toggleVisibilityInputPayment(){
+    this.inputPaymentOpened = !this.inputPaymentOpened;
+  }
+
+
+
+
 }

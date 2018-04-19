@@ -1,3 +1,9 @@
 #footer {
   margin: 0 auto;
+  color: white;
+  margin: 0 auto;
+}
+
+#campaign-image-div img {
+  width: 400px;
 }
