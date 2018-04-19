@@ -46,7 +46,7 @@ export class CampaignItemComponent implements OnInit {
         this.router.navigate(['/login']);
       },
       (error) => {
-        this.apiError = error.message;
+        console.log(error);
       }
     );
 
