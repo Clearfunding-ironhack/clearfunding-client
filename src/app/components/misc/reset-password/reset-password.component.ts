@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  resetForm: FormGroup;
+  resetForm;
   user: User = new User();
   token: String = "";
   showPassword: boolean = false;
