@@ -11,7 +11,7 @@ import { SessionService } from '../../../shared/services/session.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginForm;
   user: User = new User();
   apiError: string;
 

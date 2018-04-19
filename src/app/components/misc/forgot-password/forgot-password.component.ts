@@ -11,7 +11,7 @@ import { User } from '../../../shared/models/user.model';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  forgotForm: FormGroup;
+  forgotForm;
   user: User = new User();
   apiError: string;
 
