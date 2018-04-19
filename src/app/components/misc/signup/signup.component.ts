@@ -12,7 +12,7 @@ import { InterestsService } from './../../../shared/services/interests.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  signupForm: FormGroup;
+  signupForm;
   showPassword: boolean = false;
   user: User = new User();
   apiError: string;
