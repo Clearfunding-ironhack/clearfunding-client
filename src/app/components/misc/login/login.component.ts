@@ -11,6 +11,7 @@ import { SessionService } from '../../../shared/services/session.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  showPassword: boolean = false;
   loginForm;
   user: User = new User();
   apiError: string;
@@ -38,6 +39,10 @@ export class LoginComponent implements OnInit {
         this.apiError = error.message;
       }
     );
+  }
+
+  toggleVisibilityPassword() {
+    this.showPassword = !this.showPassword;
   }
 
 }

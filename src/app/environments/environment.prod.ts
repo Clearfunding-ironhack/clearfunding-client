@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  baseApi: 'https://phone-store-api.herokuapp.com'
-};
+  production: true
+  // baseApi: 'https://clearfunding.herokuapp.com/'
+}

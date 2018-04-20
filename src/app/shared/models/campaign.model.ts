@@ -7,8 +7,8 @@ export class Campaign {
   id?: string;
   amountRaised?: number;
   isAchieved?: boolean;
-  // isAlmostAchieved?: boolean;
-  // isCompleted?: boolean;
+  isAlmostAchieved?: boolean;
+  isCompleted?: boolean;
   // paymentInfo?: Array<string>;
   abstract?: string;
   description?: string;
@@ -20,5 +20,5 @@ export class Campaign {
   percentageRaised?: string;
   backers?: Array<User>;
   backersNumber?: number;
-  // followers?: Array<User>;
+  followers?: Array<User>;
 }
