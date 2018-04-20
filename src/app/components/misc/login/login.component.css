@@ -81,6 +81,10 @@ p {
 	text-decoration: none; 
 	margin: 2, 30;
 }
+.ui.icon.button.btn-visibility{
+	background-color: transparent !important;
+	border: none;
+}
 
 .btn:hover {
   background-position: right center; /* change the direction of the change here */

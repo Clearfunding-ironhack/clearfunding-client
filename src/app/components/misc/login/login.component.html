@@ -20,6 +20,9 @@
                      required=""
                      [(ngModel)]="user.password">
                     <label>password</label>
+                    <button class="ui icon button btn-visibility" type='button' (click)="toggleVisibilityPassword()">
+                        <i class="eye icon"></i>
+                    </button>
                     <div 
                   class="ui negative message"
                   *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter a valid password!

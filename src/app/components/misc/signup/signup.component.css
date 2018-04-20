@@ -1,3 +1,7 @@
+img {
+	width: 300px;
+	margin-left: 15%;
+}
 body {
 	margin: 0;
 	padding: 0;
@@ -10,8 +14,9 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 350px;
+	width: 450px;
 	padding: 30px;
+	margin-top: 50px;
 	background: rgba(0,0,0,.8);
 	box-sizing: border-box;
 	box-shadow: 0 15px 25px rgba(0,0,0,.2);
@@ -159,11 +164,12 @@ span {
 	padding-left: 26%;
 }
 
-.ui.basic.buttons .button, .ui.basic.button:active {
-	background-color: none !important;
+/* .ui.buttons .button, .ui.basic.button:active {
+	background-color: !important;
   border: none;
-}
-#btn-visibility:hover {
-	background-color: none !important;
-  border: none;
+} */
+
+.ui.icon.button.btn-visibility{
+	background-color: transparent !important;
+	border: none;
 }

@@ -1,5 +1,7 @@
 <body>
+
   <div class="box">
+    <img class='ui middle aligned image' src="./../assets/clearfundingGota.png">
     <h1 class='ui header' id="header-login">Join us!</h1>
     <p><span id="required-fields">(Fields with an * are required)</span></p>
     <form [formGroup]='signupForm' (ngSubmit)='onSubmitSignup(signupForm)'>
@@ -32,7 +34,7 @@
           <label>password
               <span class="asterisk">*</span>
           </label>
-          <button class="ui icon basic button" id='btn-visibility' type='button' (click)="toggleVisibilityPassword()">
+          <button class="ui icon button btn-visibility" type='button' (click)="toggleVisibilityPassword()">
             <i class="eye icon"></i>
           </button>
         </div>
@@ -47,7 +49,7 @@
           <label>Confirm password
               <span class="asterisk">*</span>
           </label>
-          <button class="ui icon basic button" type='button' (click)="toggleVisibilityPassword()">
+          <button class="ui icon button btn-visibility" type='button' (click)="toggleVisibilityPassword()">
             <i class="eye icon"></i>
           </button>
         </div>
@@ -86,4 +88,5 @@
 
     </form>
   </div>
+
 </body>

@@ -41,10 +41,9 @@ export class CampaignItemComponent implements OnInit {
     const campaignId = id;
     const amount = form.value.amount;
     this.paymentService.makePayment(campaignId, amount).subscribe(
-      (data) => {
-        console.log(`This is data: ${data}`);
+      (paypalLink) => {
         form.reset();
-        this.router.navigate(['/login']);
+        location.replace(paypalLink);
       },
       (error) => {
         console.log(error);
