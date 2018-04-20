@@ -8,22 +8,17 @@
     <a class="item" routerLinkActive="active" [routerLink]="['/campaigns']">
       Campaigns
     </a>
-    <a class="item" routerLinkActive="active"[routerLink]="['/stories']">
-      Stories
 
-    </a>
-    <a class="item" routerLinkActive="active"[routerLink]="['profile']">
-      My profile
-
-    </a>
-    <div class="right menu">
-      <a class="item" routerLinkActive="active"[routerLink]="['/login']">
-        Login
+    <div *ngIf="user;else no_user">
+      <a class="item" routerLinkActive="active"[routerLink]="['profile']">
+        My profile
       </a>
     </div>
-
+    <ng-template #no_user>
+            <a class="item" routerLinkActive="active"[routerLink]="['/login']">
+              Login
+            </a>
+    </ng-template>
   
   </div>
-
-</div>
  

@@ -1,7 +1,11 @@
 .lateral-scroll{
   max-width: 100%;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  position: fixed;
+  z-index: 99;
+  background-color: white
+
 }
 
 .nav {
@@ -9,6 +13,7 @@
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+
 }
 
 .nav-list {
@@ -16,6 +21,7 @@
   white-space: nowrap;
   padding-left: 0;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 .nav-list li {
@@ -42,6 +48,7 @@
 }
 
 .feed {
+  padding-top: 60px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -103,3 +110,4 @@ padding-bottom: 20px
   background: #04c4f4;
   border-radius: 10px;
 }
+

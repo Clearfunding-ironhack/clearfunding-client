@@ -3,4 +3,11 @@
   width: 100%;
   z-index: 99;
   background-color: white;
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+}
+
+.item-right{
+ margin-left: 100px
 }
