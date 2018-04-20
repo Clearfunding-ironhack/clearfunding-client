@@ -41,7 +41,8 @@ export class CampaignItemComponent implements OnInit {
     const campaignId = id;
     const amount = form.value.amount;
     this.paymentService.makePayment(campaignId, amount).subscribe(
-      (user) => {
+      (data) => {
+        console.log(`This is data: ${data}`);
         form.reset();
         this.router.navigate(['/login']);
       },
@@ -52,7 +53,7 @@ export class CampaignItemComponent implements OnInit {
 
   }
 
-  toggleVisibilityInputPayment(){
+  toggleVisibilityInputPayment() {
     this.inputPaymentOpened = !this.inputPaymentOpened;
   }
 
