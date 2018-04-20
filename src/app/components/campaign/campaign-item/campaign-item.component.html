@@ -10,7 +10,9 @@
 <h1>{{ campaign.title }}</h1>
 
 
-<p>Created by: {{ campaign.creator}}</p>
+<p>Created by: {{ campaign.creator.username}}</p>
+
+<h2>Amount Raised: {{ campaign.amountRaised }} USD</h2>
 
     <i class="tags icon"></i>
     {{campaign.categories}}
@@ -48,7 +50,7 @@
 
 <p>{{ campaign.description }}</p>
 
-<button class="ui basic blue button" (click)='toggleVisibilityInputPayment()'>
+<button *ngIf="!campaign.isCompleted"   class="ui basic blue button" (click)='toggleVisibilityInputPayment()'>
 
   DONATE NOW!
 </button>

@@ -2,7 +2,7 @@ import { InterestsService } from './../../../shared/services/interests.service';
 import { Component, OnInit } from '@angular/core';
 import { CampaignService } from '../../../shared/services/campaign.service';
 import { Campaign } from '../../../shared/models/campaign.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -18,7 +18,8 @@ export class CampaignListComponent implements OnInit {
   constructor(
     private router: Router,
     private campaignsService: CampaignService,
-    private interestsService: InterestsService
+    private interestsService: InterestsService,
+    private routes: ActivatedRoute
   ) { }
 
 

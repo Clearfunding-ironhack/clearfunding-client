@@ -29,13 +29,13 @@ export class PaymentService extends BaseApiService {
     // .catch(err => console.log(err));
   }
   executePayment() {
-    const paymentToken = this.routes.snapshot.params['token']
-    http://localhost:4200/campaigns?paymentId=PAY-87918546MT4757058LLM4SWY&token=EC-01995989V2712292Y&PayerID=FCBJ9SQT67H9S
-    // return this.http.post(`${PaymentService.PAYMENT_API}/success/`,
+    //const paymentToken = this.routes.snapshot.params['token'];
+    // http:localhost:4200/campaigns?paymentId=PAY-87918546MT4757058LLM4SWY&token=EC-01995989V2712292Y&PayerID=FCBJ9SQT67H9S
+    //  return this.http.post(`${PaymentService.PAYMENT_API}/success/`,
     // { paymentToken: ; }
 
   }
 
-  }
-}
+
+} 
 
