@@ -19,6 +19,8 @@ export class User {
   disbursedAmount?: Number;
   paymentTokens?: Array<string>;
   likedPublications?: Array<Story>;
+  LatchId?: string;
+  paired?: boolean;
 
   public asFormData(): FormData {
     const data = new FormData();

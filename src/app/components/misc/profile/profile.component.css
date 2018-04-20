@@ -127,3 +127,10 @@ p {
 .social ul li a img:hover {
   opacity:0.5;
 }
+
+.latch-container{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}

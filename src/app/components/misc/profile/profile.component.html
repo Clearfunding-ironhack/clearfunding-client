@@ -41,12 +41,14 @@
         <button class="ui basic blue button" (click)='toggleLatchActivation()'>Activate now!</button>
         <div *ngIf="latchActivated === true">
           <div class="ui left icon input">
-            <input type="text" placeholder="Insert received token">
-            <i class="unlock icon"></i>
+              <form [formGroup]="latchForm" (ngSubmit)="pair(latchForm)" novalidate>
+                  <div class="latch-container">
+                    <div>
+                      <input  type="text" formControlName="code" [(ngModel)]="code" placeholder="Introduce your pairing code">
+                      <i class="unlock icon"></i>
+                    </div>
+                  <button class="ui small basic blue button" type="submit" [disabled]="!latchForm.valid">Pair</button>
+                </div>
+                </form>            
           </div>
-        </div>
-        
-      </div>
-      
-    </div>
-  </div>
+        </div>    
