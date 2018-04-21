@@ -42,32 +42,36 @@
                     </div>
                   </div>
                 
+                  <div class="ui tiny two statistics" id="card-figures">
+                    <div class="yellow statistic">
+                        <div class="value" id="figures">
+                          <h6 class="dollar icon" id="figures">{{ campaign.backersNumber}}</h6> 
+                        </div>
+                        <div class="label">
+                          Contribuidores
+                        </div>
+                      </div>
+                  
+                      <div class="blue statistic" *ngIf="campaign.isAchieved === false; else campaign_achieved">
+                        <div class="figures-right value" id="figures" >
+                            <h6 class="dollar icon">{{campaign.amountRaised}}€</h6> 
+                          </div>
+                          <div class="label">
+                              <p>de {{ campaign.target }}€</p>
+                        </div>
+                        <ng-template #campaign_achieved>Achieved!</ng-template>
+                </div>
+<!-- 
                 <div class="figures">
                   <div *ngIf="campaign.backersNumber"class="figures-left" >
                   <h5>{{ campaign.backersNumber}}</h5>
                   <p>Contribuidores</p>
-                  <a [routerLink]="['/campaigns', campaign.id]"> View Details </a>
-                </div>
-                
-                <div *ngIf="campaign.isAchieved === false; else campaign_achieved">
-                <div class=figures-right>
-                    <h5>Quedan{{campaign.amountRaised}}€</h5>
-                    <p>de {{ campaign.target }}€</p>
-                  </div>
-                </div>
-                <ng-template #campaign_achieved>Achieved!</ng-template>
-
-                </div>
-
-
-
+                </div> -->
+              
                 </div>
                 </div>
               </div>
             </div>
         </div>
         </div>
-
-
-
 

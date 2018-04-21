@@ -2,18 +2,16 @@
   max-width: 100%;
   margin-top: 40px;
   margin-bottom: 30px;
-  position: fixed;
   z-index: 99;
   background-color: white
-
 }
+
 
 .nav {
   white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-
 }
 
 .nav-list {
@@ -48,7 +46,7 @@
 }
 
 .feed {
-  padding-top: 60px;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -87,7 +85,8 @@ img{
 }
 
 .drawing{
-  background-color: green;
+  background-color:#FF1493;
+  max-width: 100%;
 }
 
 .description{
@@ -98,8 +97,8 @@ padding-bottom: 20px
   padding-bottom: 15px;
 }
 
-.figures{
-  margin-top: 40px;
+#card-figures{
+  margin-top: 30px;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -110,4 +109,3 @@ padding-bottom: 20px
   background: #04c4f4;
   border-radius: 10px;
 }
-

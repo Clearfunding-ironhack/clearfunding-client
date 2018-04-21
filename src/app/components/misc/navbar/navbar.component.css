@@ -11,3 +11,9 @@
 .item-right{
  margin-left: 100px
 }
+
+.ui.secondary.pointing.menu .active.item{
+  border-color: #04c4f4;
+  color: #049cd4
+}
+
