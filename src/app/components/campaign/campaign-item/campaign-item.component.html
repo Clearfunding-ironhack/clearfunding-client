@@ -53,6 +53,11 @@
     </div>
   </div>
 
+<div class="ui success message"*ngIf="campaign.isAchieved">
+  Campaign was achieved! Thank you! :)
+</div>
+
+
 
   <button *ngIf="!campaign.isCompleted" class="ui basic blue button" id="donate-button" (click)='toggleVisibilityInputPayment()'>
     DONATE NOW!

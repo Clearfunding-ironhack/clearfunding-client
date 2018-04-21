@@ -1,5 +1,4 @@
-
-  <div class="container">
+<div class="container">
 
   <div class="ui secondary pointing menu" id='nav-bar'>
     <a class="item" routerLinkActive="active" [routerLink]="['/home']">
@@ -9,20 +8,13 @@
       Campaigns
     </a>
 
-    <div *ngIf="user;else no_user">
-      <a class="item" routerLinkActive="active"[routerLink]="['profile']">
-        My profile
-      </a>
- 
-      
-    </div>
-    
-    <ng-template #no_user>
-            <a class="item" routerLinkActive="active"[routerLink]="['/login']">
-              Login
-            </a>
-    </ng-template>
-
-
+    <a class="item" routerLinkActive="active" [routerLink]="['/login']">
+      Login
+    </a>
+    <a class="item" routerLinkActive="active" [routerLink]="['/profile']">
+      My profile
+    </a>
 
   </div>
+  </div>
+
