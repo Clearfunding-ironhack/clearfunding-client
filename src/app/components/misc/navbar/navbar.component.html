@@ -8,19 +8,19 @@
       Campaigns
     </a>
 
-    <div *ngIf=user>
-      <a class="item" routerLinkActive="active" [routerLink]="['profile']">
+    <div *ngIf="user;else no_user">
+      <a class="item" routerLinkActive="active"[routerLink]="['profile']">
         My profile
       </a>
-      <a class="item" (click)='submitLogout()'>Logout</a>
-
+ 
+      
     </div>
-    <div *ngIf=!user>
-      <a class="item" routerLinkActive="active" [routerLink]="['/login']">
-        Login
-      </a>
-
-    </div>
+    
+    <ng-template #no_user>
+            <a class="item" routerLinkActive="active"[routerLink]="['/login']">
+              Login
+            </a>
+    </ng-template>
 
 
 
