@@ -20,7 +20,7 @@
 
 #campaign-category {
   position: absolute;
-  top: 8px;
+  top: 62px;
   right: 16px;
   z-index: 99;
 
@@ -28,7 +28,21 @@
 
 #campaign-creator {
   position: absolute;
-  top: 12px;
+  top: 92px;
   right: 16px;
   z-index: 99;
+}
+
+#description {
+  margin-top: 20px;
+  text-align: justify;
+}
+
+#stats {
+  margin-bottom: 20px;
+}
+
+#donate-button {
+  margin-top: 40px;
+  width: 100%;
 }

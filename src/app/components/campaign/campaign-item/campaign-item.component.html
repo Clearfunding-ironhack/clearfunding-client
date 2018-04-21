@@ -12,13 +12,11 @@
 
   <h1 class='ui centered header'>{{ campaign.title }}</h1>
 
-
-
-
+  <p id='description'>{{ campaign.description }}</p>
 
 
   <div class="ui four statistics">
-    <div class="pink statistic">
+    <div class="pink tiny statistic">
       <div class="value">
         <i class="dollar icon"></i> {{ campaign.amountRaised }}
       </div>
@@ -26,7 +24,7 @@
         Amount raised
       </div>
     </div>
-    <div class="grey statistic">
+    <div class="grey tiny statistic">
         <div class="value">
           <i class="dollar icon"></i> {{ campaign.target }}
         </div>
@@ -36,7 +34,7 @@
       </div>
 
 
-    <div class="blue statistic">
+    <div class="blue tiny statistic" id="stats">
       <div class="value">
         {{campaign.backers.length}}
         <i class="users icon"></i>
@@ -56,11 +54,7 @@
   </div>
 
 
-
-  <p>{{ campaign.description }}</p>
-
-  <button *ngIf="!campaign.isCompleted" class="ui basic blue button" (click)='toggleVisibilityInputPayment()'>
-
+  <button *ngIf="!campaign.isCompleted" class="ui basic blue button" id="donate-button" (click)='toggleVisibilityInputPayment()'>
     DONATE NOW!
   </button>
 
