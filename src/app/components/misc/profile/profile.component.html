@@ -38,13 +38,15 @@
       <div class='social'>
         <h2 class='title'>Activate second factor authentication</h2>
         <p>This authentication adds an extra layer of protection to your account</p>
-        <button class="ui basic blue button" (click)='toggleLatchActivation()'>Activate now!</button>
+        
+        
+        <button class="ui basic blue button" id='activate-button' (click)='toggleLatchActivation()'>Activate now!</button>
         <div *ngIf="latchActivated === true">
           <div class="ui left icon input">
               <form [formGroup]="latchForm" (ngSubmit)="pair(latchForm)" novalidate>
                   <div class="latch-container">
-                    <div>
-                      <input  type="text" formControlName="code" [(ngModel)]="code" placeholder="Introduce your pairing code">
+                      <div class="ui icon input">
+                      <input  type="text" formControlName="code" [(ngModel)]="code" placeholder="Enter your pairing code">
                       <i class="unlock icon"></i>
                     </div>
                   <button class="ui small basic blue button" type="submit" [disabled]="!latchForm.valid">Pair</button>
@@ -52,3 +54,5 @@
                 </form>            
           </div>
         </div>    
+
+       

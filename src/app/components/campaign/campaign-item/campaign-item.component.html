@@ -1,13 +1,11 @@
-<div class="ui text container">
+<div class="ui raised very padded text container segment" id='campaign-main-container'>
 
 
-<h1>{{ campaign.title }}</h1>
 
-<div id='campaign-image-div'>
-  <img [src]="campaign.image" *ngIf="campaign.image">
-</div>
+  <img class="ui fluid image"[src]="campaign.image" *ngIf="campaign.image">
 
-<h1>{{ campaign.title }}</h1>
+
+  <h1 class='ui centered header'>{{ campaign.title }}</h1>
 
 
 <p>Created by: {{ campaign.creator.username}}</p>
@@ -18,7 +16,7 @@
     {{campaign.categories}}
 
 
-        <div class="ui statistics">
+        <!-- <div class="ui statistics">
             <div class="statistic">
               <div class="value">
                 80%
@@ -43,8 +41,45 @@
                 Days til deadline
               </div>
             </div>
-          </div>
+          </div> -->
 
+
+<div class="ui four statistics">
+    <div class="statistic">
+      <div class="value">
+        22
+      </div>
+      <div class="label">
+        Saves
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="text value">
+        Three<br>
+        Thousand
+      </div>
+      <div class="label">
+        Signups
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        <i class="dollar icon"></i> 5
+      </div>
+      <div class="label">
+        Flights
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        <img src="/images/avatar/small/joe.jpg" class="ui circular inline image">
+        42
+      </div>
+      <div class="label">
+        Team Members
+      </div>
+    </div>
+  </div>
 
 
 

@@ -138,3 +138,11 @@ p {
   justify-content: center;
   align-items: center
 }
+
+#activate-button {
+  margin-top: 10px;
+}
+
+#campaign-main-container {
+  margin-top: 20px;
+}
