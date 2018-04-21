@@ -12,13 +12,13 @@ export class User {
   interests?: Array<string>;
   PayerID?: string;
   DNI?: string;
-  campaignsFollowed?: Array <Campaign>;
-  campaignsBacked?: Array <Campaign>;
-  campaignsCreated?: Array <Campaign>;
+  campaignsFollowed?: Array <Campaign> = [];
+  campaignsBacked?: Array <Campaign> = [];
+  campaignsCreated?: Array <Campaign> = [];
   committedAmount?: Number;
   disbursedAmount?: Number;
-  paymentTokens?: Array<string>;
-  likedPublications?: Array<Story>;
+  paymentTokens?: Array<string> = [];
+  likedPublications?: Array<Story> = [];
   LatchId?: string;
   paired?: boolean;
 

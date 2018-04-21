@@ -14,11 +14,11 @@ export class Campaign {
   description?: string;
   location?: string;
   dueDate?: Date;
-  categories?: Array<string>;
+  categories?: Array<string> = [];
   // paymentTokens?: Array<string>;
-  creator?: User;
+  creator?: User = new User();
   percentageRaised?: string;
-  backers?: Array<User>;
+  backers?: Array<User> = [];
   backersNumber?: number;
-  followers?: Array<User>;
+  followers?: Array<User> = [];
 }

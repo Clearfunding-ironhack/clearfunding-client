@@ -43,6 +43,15 @@
 }
 
 #donate-button {
-  margin-top: 40px;
+  margin-top: 35px;
   width: 100%;
+}
+
+#paypal-button {
+  margin-top: 35px;
+  width: 100%;
+}
+
+#currency-input {
+  margin-top:35px;
 }

@@ -12,6 +12,14 @@ export const stories: Array<Story> = [
         text: 'añsjasñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad  ñf sad asdsad asdasd asdasd asañsjasñf sad asdsad asdasd asdasd as añsjasñf sad asdsad asdasd asdasd as añsjasñf sad asdsad asdasd asdasd as añsjasñf sad asdsad asdasd asdasd asdasfa sfas das dasdasd sad asdasdas dasd asdas dasda sdasdasd asdasd asdasd asdasdasd asdasdasd qwf qwfasf asd qwd asd asd asf asf as das fas fw asfasdasfqwf 76yf7hfy hh i8i 8oib8i 8 867uvug6745fu 8uu 8i i'
     },
     {
+        header: 'Nuevo caso de pete en un Smart Contract!',
+        subheader: 'Al parecer, al subirlo a producción, ¡Se les coló un endpoint a /phones!',
+        createdAt: '2018-04-10',
+        id: '1',
+        estimatedReadingTime: 56,
+        categories: ['Art', 'Design']
+    },
+    {
         header: 'Por fin acaba Ironhack!',
         // tslint:disable-next-line:max-line-length
         subheader: 'Tras seis largos y prosperos meses, los alumnos abandonan la escuela. ¿Que tal les ira a nuestros pequeños Ironhackers?',
