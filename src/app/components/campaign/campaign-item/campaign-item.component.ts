@@ -17,6 +17,7 @@ export class CampaignItemComponent implements OnInit {
   campaign: Campaign = new Campaign();
   error: Object;
   inputPaymentOpened: boolean = false;
+  
 
   constructor(
     private router: Router,
@@ -36,6 +37,7 @@ export class CampaignItemComponent implements OnInit {
            this.campaign = campaign;
           });
       });
+  
   }
   makePayment(id: string, form: NgForm) {
     const campaignId = id;
@@ -55,8 +57,6 @@ export class CampaignItemComponent implements OnInit {
   toggleVisibilityInputPayment() {
     this.inputPaymentOpened = !this.inputPaymentOpened;
   }
-
-
 
 
 }

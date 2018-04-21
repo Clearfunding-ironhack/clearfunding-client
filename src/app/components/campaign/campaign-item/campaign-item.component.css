@@ -7,3 +7,28 @@
 #campaign-image-div img {
   width: 400px;
 }
+
+#first-row {
+  display: flex;
+}
+
+#image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+#campaign-category {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  z-index: 99;
+
+}
+
+#campaign-creator {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  z-index: 99;
+}

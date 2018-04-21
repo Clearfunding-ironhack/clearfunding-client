@@ -1,125 +1,87 @@
+<app-navbar></app-navbar>
+<div class="container" id='image-container'>
+    <img class="ui fluid image" [src]="campaign.image" *ngIf="campaign.image" >
+    <a class="ui blue tag label" id="campaign-category">{{campaign.categories}} </a>
+    <a class="ui blue image basic label" id='campaign-creator'>
+        <img src="{{ campaign.creator.image}}"> {{ campaign.creator.username}}
+    </a>
+</div>
+
+
 <div class="ui raised very padded text container segment" id='campaign-main-container'>
-
-
-
-  <img class="ui fluid image"[src]="campaign.image" *ngIf="campaign.image">
-
 
   <h1 class='ui centered header'>{{ campaign.title }}</h1>
 
 
-<p>Created by: {{ campaign.creator.username}}</p>
-
-<h2>Amount Raised: {{ campaign.amountRaised }} USD</h2>
-
-    <i class="tags icon"></i>
-    {{campaign.categories}}
 
 
-        <!-- <div class="ui statistics">
-            <div class="statistic">
-              <div class="value">
-                80%
-              </div>
-              <div class="label">
-                Funded
-              </div>
-            </div>
-            <div class="statistic">
-              <div class="value">
-                31,200
-              </div>
-              <div class="label">
-                Backers
-              </div>
-            </div>
-            <div class="statistic">
-              <div class="value">
-                22
-              </div>
-              <div class="label">
-                Days til deadline
-              </div>
-            </div>
-          </div> -->
 
 
-<div class="ui four statistics">
-    <div class="statistic">
+  <div class="ui four statistics">
+    <div class="pink statistic">
       <div class="value">
-        22
+        <i class="dollar icon"></i> {{ campaign.amountRaised }}
       </div>
       <div class="label">
-        Saves
+        Amount raised
       </div>
     </div>
-    <div class="statistic">
-      <div class="text value">
-        Three<br>
-        Thousand
+    <div class="grey statistic">
+        <div class="value">
+          <i class="dollar icon"></i> {{ campaign.target }}
+        </div>
+        <div class="label">
+         Target
+        </div>
+      </div>
+
+
+    <div class="blue statistic">
+      <div class="value">
+        {{campaign.backers.length}}
+        <i class="users icon"></i>
       </div>
       <div class="label">
-        Signups
+        Backers
       </div>
     </div>
-    <div class="statistic">
+    <div class="grey statistic">
       <div class="value">
-        <i class="dollar icon"></i> 5
+        <i class="bell outline icon"></i> 
       </div>
       <div class="label">
-        Flights
-      </div>
-    </div>
-    <div class="statistic">
-      <div class="value">
-        <img src="/images/avatar/small/joe.jpg" class="ui circular inline image">
-        42
-      </div>
-      <div class="label">
-        Team Members
+          {{ campaign.dueDate  | date :'short' }}
       </div>
     </div>
   </div>
 
 
 
-<p>{{ campaign.description }}</p>
+  <p>{{ campaign.description }}</p>
 
-<button *ngIf="!campaign.isCompleted"   class="ui basic blue button" (click)='toggleVisibilityInputPayment()'>
+  <button *ngIf="!campaign.isCompleted" class="ui basic blue button" (click)='toggleVisibilityInputPayment()'>
 
-  DONATE NOW!
-</button>
+    DONATE NOW!
+  </button>
 
-<form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm"*ngIf="inputPaymentOpened === true">
+  <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened === true">
     <div class="ui right labeled input">
-        <label for="amount" class="ui label">$</label>
-        <input [(ngModel)]="amount" type="text" placeholder="Amount" name='amount' id="amount" >
-        <div class="ui basic label">.00</div>
+      <label for="amount" class="ui label">$</label>
+      <input [(ngModel)]="amount" type="text" placeholder="Amount" name='amount' id="amount">
+      <div class="ui basic label">.00</div>
     </div>
     <button class="ui basic blue button" type="submit">Go to paypal</button>
 
-</form >
+  </form>
 
 
 
-<ul class="ui ten wide column horizontal list" id='icon-list'>
-   
-    <div class="item">
-        <i class="time icon"></i>
-          15 June 2018
-    </div>
-    <div class="item">
-        <i class="map pin icon"></i>
-       {{campaign.location}}
-    </div>
-    <div class="item">
-            <i class="dollar icon"></i>
-            {{ campaign.target }} USD
-       
-    </div>
+  <ul class="ui ten wide column horizontal list" id='icon-list'>
+
+  
+  
 
   </ul>
 
-  </div>
-    
-    
+</div>
+
