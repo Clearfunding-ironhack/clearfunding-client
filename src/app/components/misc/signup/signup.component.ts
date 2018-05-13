@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   apiError: string;
   interests: Array <string> = [];
   selectedInterests: Array <string> = [];
+  signupStatusOK: boolean;
 
   @ViewChild('imageFile') imageFile;
 
@@ -54,10 +55,12 @@ export class SignupComponent implements OnInit {
     this.usersService.create(this.user).subscribe(
       (user) => {
         form.reset();
+        this.signupStatusOK = true;
         this.router.navigate(['/login']);
       },
       (error) => {
         this.apiError = error.message;
+        this.signupStatusOK = false;
       }
     );
   }

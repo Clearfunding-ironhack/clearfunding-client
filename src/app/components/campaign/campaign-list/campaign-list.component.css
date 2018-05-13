@@ -5,6 +5,9 @@
   background-color: white
 }
 
+#image-container {
+  width:50%;
+}
 
 .nav {
   white-space: nowrap;
@@ -46,7 +49,6 @@
 }
 
 .feed {
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

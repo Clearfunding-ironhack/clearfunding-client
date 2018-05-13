@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+// import * as $ from 'jquery';
+import { Observable, Subscription } from 'rxjs/Rx';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SessionService } from '../../../shared/services/session.service';
 import { User } from '../../../shared/models/user.model';
-import { UsersService } from '../../../shared/services/users.service';
+// import { UsersService } from '../../../shared/services/users.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,22 +12,30 @@ import { UsersService } from '../../../shared/services/users.service';
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent implements OnInit {
-  currentUser: User = this.sessionService.user;
-  user: User = new User();
+export class NavbarComponent implements OnInit, OnDestroy {
+  user: User;
+  userSubscription: Subscription;
 
   constructor(
     private sessionService: SessionService,
     private routes: ActivatedRoute,
-    private usersService: UsersService,
+    // private usersService: UsersService,
     private router: Router,
   ) { }
   ngOnInit() {
+    this.user = this.sessionService.getUser();
+    this.userSubscription = this.sessionService.onUserChanges()
+      .subscribe(user => this.user = user);
   }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+  }
+
   submitLogout() {
     this.sessionService.logout()
       .subscribe(() => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/home']);
       });
   }
 

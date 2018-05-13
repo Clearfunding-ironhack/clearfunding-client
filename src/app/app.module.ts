@@ -25,6 +25,12 @@ import { ProfileComponent } from './components/misc/profile/profile.component';
 import { FilterPipe } from './filter.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { PaymentService } from './shared/services/payment.service';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationsComponent } from './components/misc/notifications/notifications.component';
+import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
+import { ChartsModule } from 'ng2-charts';
+import { ChartComponent } from './components/misc/chart/chart.component';
 
 
 @NgModule({
@@ -41,7 +47,9 @@ import { PaymentService } from './shared/services/payment.service';
     ResetPasswordComponent,
     ProfileComponent,
     FilterPipe,
-    HomeComponent
+    HomeComponent,
+    NotificationsComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +57,10 @@ import { PaymentService } from './shared/services/payment.service';
     HttpModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot(),
+    ChartsModule
+
   ],
   providers: [
     CampaignService,
@@ -56,7 +68,8 @@ import { PaymentService } from './shared/services/payment.service';
     UsersService,
     InterestsService,
     SessionService,
-    PaymentService
+    PaymentService,
+    IsAuthenticatedGuard
   ],
   bootstrap: [AppComponent]
 })

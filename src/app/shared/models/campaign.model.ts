@@ -17,7 +17,7 @@ export class Campaign {
   categories?: Array<string> = [];
   // paymentTokens?: Array<string>;
   creator?: User = new User();
-  percentageRaised?: string;
+  percentageAchieved?: string;
   backers?: Array<User> = [];
   backersNumber?: number;
   followers?: Array<User> = [];

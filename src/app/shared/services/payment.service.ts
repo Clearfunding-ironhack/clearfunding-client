@@ -23,10 +23,8 @@ export class PaymentService extends BaseApiService {
     return this.http.post(`${PaymentService.PAYMENT_API}/${campaignId}/pay`, 
     { name: 'payment', price: amount, currency: 'USD'},
     BaseApiService.defaultOptions)
-    .map(res => {
-     return res.json().paypalLink;
-    })
-    // .catch(err => console.log(err));
+    .map(res => res.json().paypalLink)
+    .catch(error => this.handleError(error));
   }
   executePayment() {
     //const paymentToken = this.routes.snapshot.params['token'];

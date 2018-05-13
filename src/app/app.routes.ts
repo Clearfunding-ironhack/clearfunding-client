@@ -9,7 +9,9 @@ import { ForgotPasswordComponent } from './components/misc/forgot-password/forgo
 import { ResetPasswordComponent } from './components/misc/reset-password/reset-password.component';
 import { ProfileComponent } from './components/misc/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
+import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 const PROVIDER = 'localhost:4200';
+
 
 
 export const routes: Routes = [
@@ -23,5 +25,5 @@ export const routes: Routes = [
   { path: 'campaigns/:id', component: CampaignItemComponent},
   { path: 'stories', component: StoriesListComponent },
   { path: 'stories/:id', component: StoriesItemComponent },
-  { path: 'profile', component: ProfileComponent}
+  { path: 'profile', canActivate: [IsAuthenticatedGuard], component: ProfileComponent}
 ];

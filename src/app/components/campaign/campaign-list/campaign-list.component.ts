@@ -33,7 +33,7 @@ export class CampaignListComponent implements OnInit {
         if (campaign.target) {
         const raisedNumber = (campaign.amountRaised * 100 / campaign.target);
         const raisedRounded = raisedNumber.toFixed(0);
-        campaign.percentageRaised = raisedRounded + '%';
+        campaign.percentageAchieved = raisedRounded + '%';
         }
         if (campaign.backers.length >= 1) {
          campaign.backersNumber = campaign.backers.length;

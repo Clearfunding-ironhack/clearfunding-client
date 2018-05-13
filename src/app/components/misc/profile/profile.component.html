@@ -1,21 +1,43 @@
+<app-navbar></app-navbar>
 
+   
 
-<div class='ui container' *ngIf="user" >
-    <div class='header'>
-      <div class='person'>
-        <div class='dp' [ngStyle]="{'background-image': 'url(' + user.image + ')'}">
+<div class="row">
+    <div class="pic_base">
+        <img src={{user.image}} width=100 id="profile_pic" alt="">
+        <div class="icon_base">
+          
+           
         </div>
+       <div id='card-div'>
+          <h1 id="title">Barb</h1>
+         <p>Member since 2012</p>
+         <hr>
+         <div class="square">
+           <div id="campaigns-backed">
+             <p>Campaigns backed:</p>
+             <br>
+               {{user.campaignsBacked.length}}
+           </div>
+           <div id="amount-committed">
+             <p>Amount committed</p>
+           </div>
+            <div id="amount-disbursed">
+             <p>Amount disbursed</p>
+           </div>
+         </div>
 
-        <div class='name'>{{ user.username}}</div>
-      </div>
+       </div>
     </div>
-    <div class='info'>
-      <h2 class="title">About</h2>
-      <p>  Back-end cascade Uncle Drew. Append append Haris. Alumni application variable. My favourite tag was blink hypertext key. Let's go surfin' now everybody's learnin' how lab illustrator. Semantic index Sketch. Header array hypertext. Method together preprocessor. Console alert Wes. Animate code append..</p>
-      <div class='campaigns'>
-        <h2 class='title' id='campaigns-backed'>Campaigns backed: {{ user.campaignsBacked.length }}</h2>
-      </div>
-      <div class='social'>
+
+    <div class="content_base">
+        <p id="content">
+Robert John Downey Jr. is an American actor. His career has included critical and popular success in his youth, followed by a period of substance abuse and legal troubles, and a resurgence of commercial success in middle age.
+            <br><br>
+        <strong>Born:</strong> 4 April 1965 (age 51 years), Manhattan, New York City, New York, United States
+        <br><br>
+        <strong>Upcoming movies:</strong> Spider-Man: Homecoming, Avengers: Infinity War, Untitled Avengers film
+    </p>
         <h2 class='title'>Activate second factor authentication</h2>
         <p>This authentication adds an extra layer of protection to your account</p>
         
@@ -33,6 +55,4 @@
                 </div>
                 </form>            
           </div>
-        </div>    
-
-       
+        </div> 

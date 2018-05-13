@@ -3,7 +3,9 @@
   color: white;
   margin: 0 auto;
 }
-
+#campaign-main-container {
+  margin-top: 100px;
+}
 #campaign-image-div img {
   width: 400px;
 }
@@ -12,11 +14,6 @@
   display: flex;
 }
 
-#image-container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
 
 #campaign-category {
   position: absolute;
@@ -54,4 +51,7 @@
 
 #currency-input {
   margin-top:35px;
+}
+#like {
+  color: white;
 }

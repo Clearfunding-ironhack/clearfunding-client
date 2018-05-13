@@ -1,19 +1,30 @@
 <app-navbar></app-navbar>
-<div class="container" id='image-container'>
-    <img class="ui fluid image" [src]="campaign.image" *ngIf="campaign.image" >
-    <a class="ui blue tag label" id="campaign-category">{{campaign.categories}} </a>
-    <a class="ui blue image basic label" id='campaign-creator'>
-        <img src="{{ campaign.creator.image}}"> {{ campaign.creator.username}}
-    </a>
-</div>
-
 
 <div class="ui raised very padded text container segment" id='campaign-main-container'>
+    <div class="ui padded container" id='image-container'>
+        <img class="ui fluid image" [src]="campaign.image" *ngIf="campaign.image" >
+        <a class="ui blue tag label" id="campaign-category">{{campaign.categories}} </a>
+        <a class="ui blue image basic label" id='campaign-creator'> </a>
+    
 
   <h1 class='ui centered header'>{{ campaign.title }}</h1>
 
   <p id='description'>{{ campaign.description }}</p>
+  <div [hidden]="!chart">
+      <canvas id='canvas' width="800" height="500"> {{ chart }} </canvas>
+  </div>
 
+
+  <div class="ui labeled button" tabindex="0">
+      <div class="ui red button" (click)='followCampaign(campaign.id)' >
+        <a id='like'><i class="heart icon"></i> Like </a>
+      </div>
+      <a class="ui basic red left pointing label">
+        {{ campaign.followers.length}}
+      </a>
+  </div>
+
+    
 
   <div class="ui four statistics">
     <div class="pink tiny statistic">
@@ -57,10 +68,14 @@
   Campaign was achieved! Thank you! :)
 </div>
 
+<div class="ui success message"*ngIf="campaign.isCompleted">
+    Campaign has finished! Contributions can no longer be made.
+  </div>
+
 
 
   <button *ngIf="!campaign.isCompleted" class="ui basic blue button" id="donate-button" (click)='toggleVisibilityInputPayment()'>
-    DONATE NOW!
+      <i class="paypal icon"></i> DONATE NOW!
   </button>
 
   <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened">
@@ -83,4 +98,4 @@
   </ul>
 
 </div>
-
+ 

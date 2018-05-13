@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.sessionService.authenticate(this.user).subscribe(
       (user) => {
         form.reset();
-        this.router.navigate(['/campaigns']);
+        this.router.navigate(['/home']);
       },
       (error) => {
         this.apiError = error.message;

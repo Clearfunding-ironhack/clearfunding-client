@@ -84,7 +84,9 @@
 
       <button class="ui fluid blue button" type="submit" id="submit-signup" [disabled]="!signupForm.valid">Submit</button>
 
-
+      <div class="ui success message"*ngIf="signupStatusOK && user">
+          Your account was created! :)
+      </div>
 
     </form>
   </div>

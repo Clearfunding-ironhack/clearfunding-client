@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 
 <div class="container-campaigns">
 
@@ -14,7 +15,7 @@
     <div class="feed">
         <div *ngFor="let campaign of campaigns | filterCampaings:category">
           <div class="card-box">
-            <div class="ui card" (click)="onClickCard(campaign.id)">
+            <div class="ui fluid raised card" (click)="onClickCard(campaign.id)">
                 <div class="image">
                   <div class="ui blurring inverted dimmer">
                     <div class="content">
@@ -31,14 +32,14 @@
                   <div class="description"> {{ campaign.abstract }}</div>
                 
                   <div class="campagin-stats">
-                    <div class="target-text" *ngIf="campaign.percentageRaised;else campaign_beginning_raised">
-                        <h4>Ya hemos conseguido el {{ campaign.percentageRaised }} de la meta.</h4>
+                    <div class="target-text" *ngIf="campaign.percentageAchieved;else campaign_beginning_raised">
+                        <h4>Ya hemos conseguido el {{ campaign.percentageAchieved }} de la meta.</h4>
                     </div>
                     <ng-template #campaign_beginning_raised>Be the first one backign the project!</ng-template>
 
                 <div class="chart">
                   
-                    <div class="drawing" [ngStyle]="{'width': campaign.percentageRaised}">
+                    <div class="drawing" [ngStyle]="{'width': campaign.percentageAchieved}">
                     </div>
                   </div>
                 

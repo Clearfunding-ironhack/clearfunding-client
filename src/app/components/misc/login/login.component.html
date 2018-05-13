@@ -10,8 +10,8 @@
                         required=""
                         [(ngModel)]="user.email">
                     <label>email</label>
-                    <!-- <div class="ui negative message" *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter a valid email!</div> -->
                 </div>
+                <!-- <div class="ui blue message" id="error2" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid email!</div> -->
                 <div class="inputBox">
                     <input
                      type="password"
@@ -24,7 +24,7 @@
                         <i class="eye icon"></i>
                     </button>
                     <div 
-                  class="ui negative message"
+                  class="ui blue message"
                   *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter a valid password!
                 </div>
                 </div>
