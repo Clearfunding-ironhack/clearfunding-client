@@ -1,101 +1,76 @@
 <app-navbar></app-navbar>
 
-<div class="ui raised very padded text container segment" id='campaign-main-container'>
-    <div class="ui padded container" id='image-container'>
-        <img class="ui fluid image" [src]="campaign.image" *ngIf="campaign.image" >
-        <a class="ui blue tag label" id="campaign-category">{{campaign.categories}} </a>
-        <a class="ui blue image basic label" id='campaign-creator'> </a>
-    
 
-  <h1 class='ui centered header'>{{ campaign.title }}</h1>
-
-  <p id='description'>{{ campaign.description }}</p>
-  <div [hidden]="!chart">
-      <canvas id='canvas' width="800" height="500"> {{ chart }} </canvas>
-  </div>
-
-
-  <div class="ui labeled button" tabindex="0">
-      <div class="ui red button" (click)='followCampaign(campaign.id)' >
-        <a id='like'><i class="heart icon"></i> Like </a>
-      </div>
-      <a class="ui basic red left pointing label">
-        {{ campaign.followers.length}}
-      </a>
-  </div>
-
-    
-
-  <div class="ui four statistics">
-    <div class="pink tiny statistic">
-      <div class="value">
-        <i class="dollar icon"></i> {{ campaign.amountRaised }}
-      </div>
-      <div class="label">
-        Amount raised
-      </div>
-    </div>
-    <div class="grey tiny statistic">
-        <div class="value">
-          <i class="dollar icon"></i> {{ campaign.target }}
+<div class="ui stackable grid container" id="grid-container">
+  <div class="row" id="picture">
+    <img class="ui fluid image" [src]="campaign.image" *ngIf="campaign.image">
+    <h2>{{ campaign.title }} </h2>
+    <div id="top-right">
+      <div class="ui labeled button" tabindex="0" id="like-box">
+        <div class="ui basic button box" (click)='followCampaign(campaign.id)'>
+          <a id='like'>
+            <i class="heart icon"></i> Like </a>
         </div>
-        <div class="label">
-         Target
-        </div>
+        <a class="ui basic white left pointing label">
+          {{ campaign.followers.length}}
+        </a>
       </div>
-
-
-    <div class="blue tiny statistic" id="stats">
-      <div class="value">
-        {{campaign.backers.length}}
-        <i class="users icon"></i>
-      </div>
-      <div class="label">
-        Backers
-      </div>
+      <button class="ui basic icon button" type='button'>
+        <i class="share alternate icon"></i>
+      </button>
     </div>
-    <div class="grey statistic">
-      <div class="value">
-        <i class="bell outline icon"></i> 
-      </div>
-      <div class="label">
-          {{ campaign.dueDate  | date :'short' }}
-      </div>
+    <div id="campaign-category-div">
+      <a class="ui blue tag label" id="campaign-category">{{campaign.categories}} </a>
     </div>
+
   </div>
 
-<div class="ui success message"*ngIf="campaign.isAchieved">
-  Campaign was achieved! Thank you! :)
+  <div class="ui text container" id="text">
+    <div id="description"> {{ campaign.description }}</div>
+  </div>
 </div>
 
-<div class="ui success message"*ngIf="campaign.isCompleted">
-    Campaign has finished! Contributions can no longer be made.
+<div class="ui two column stackable grid">
+  <div [hidden]="!chart" class="column stats">
+    <canvas id='canvas' width="800" height="500"> {{ chart }} </canvas>
   </div>
+  <div class="column stats">
+    <div class="row" id='del-countdown' *ngIf="!campaign.isAchieved">
+      <h3>Remaining time</h3>
+      <div id="clock">
+        <span #days></span>
+        <span #hours></span>
+        <span #minutes></span>
+        <span #seconds></span>
+      </div>
+      <div id="units">
+        <span>Days</span>
+        <span>Hours</span>
+        <span>Minutes</span>
+        <span>Seconds</span>
+      </div>
+    </div>
+    <div class="ui success message" *ngIf="campaign.isAchieved">
+      Campaign was achieved! Thank you! :)
+    </div>
+    <div class="ui success message" *ngIf="campaign.isCompleted">
+      Campaign was achieved! Thank you! :)
+    </div>
 
-
-
-  <button *ngIf="!campaign.isCompleted" class="ui basic blue button" id="donate-button" (click)='toggleVisibilityInputPayment()'>
+    <button *ngIf="!campaign.isCompleted" class="ui basic blue button" id="donate-button" (click)='toggleVisibilityInputPayment()'>
       <i class="paypal icon"></i> DONATE NOW!
-  </button>
+    </button>
 
-  <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened">
-    <div class="ui right labeled input" id='currency-input'>
-      <label for="amount" class="ui label">$</label>
-      <input [(ngModel)]="amount" type="text" placeholder="Amount" name='amount' id="amount">
-      <div class="ui basic label">.00</div>
-    </div>
-    <button class="ui basic blue button" id="paypal-button" type="submit">Go to paypal</button>
+    <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened">
+      <div class="ui right labeled input" id='currency-input'>
+        <label for="amount" class="ui label">$</label>
+        <input [(ngModel)]="amount" type="text" placeholder="Amount" name='amount' id="amount">
+        <div class="ui basic label">.00</div>
+      </div>
+      <button class="ui basic blue button" id="paypal-button" type="submit">Go to paypal</button>
 
-  </form>
+    </form>
 
-
-
-  <ul class="ui ten wide column horizontal list" id='icon-list'>
-
-  
-  
-
-  </ul>
-
+  </div>
 </div>
- 
+
