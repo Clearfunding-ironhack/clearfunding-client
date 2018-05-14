@@ -4,55 +4,107 @@
 
 <div class="row">
     <div class="pic_base">
-        <img src={{user.image}} width=100 id="profile_pic" alt="">
-        <div class="icon_base">
-          
-           
-        </div>
+         <img src={{user.image}} width=100 id="profile_pic" alt="">
+     
        <div id='card-div'>
           <h1 id="title">Barb</h1>
          <p>Member since 2012</p>
          <hr>
-         <div class="square">
+       <!-- <div class="square">
            <div id="campaigns-backed">
-             <p>Campaigns backed:</p>
-             <br>
-               {{user.campaignsBacked.length}}
+             <div class="box-title">Backed</div>
+             <div class="box-body">
+               <p>{{user.campaignsBacked.length}}</p>
+             </div>
            </div>
-           <div id="amount-committed">
-             <p>Amount committed</p>
-           </div>
-            <div id="amount-disbursed">
-             <p>Amount disbursed</p>
-           </div>
-         </div>
-
-       </div>
-    </div>
-
-    <div class="content_base">
-        <p id="content">
-Robert John Downey Jr. is an American actor. His career has included critical and popular success in his youth, followed by a period of substance abuse and legal troubles, and a resurgence of commercial success in middle age.
-            <br><br>
-        <strong>Born:</strong> 4 April 1965 (age 51 years), Manhattan, New York City, New York, United States
-        <br><br>
-        <strong>Upcoming movies:</strong> Spider-Man: Homecoming, Avengers: Infinity War, Untitled Avengers film
-    </p>
-        <h2 class='title'>Activate second factor authentication</h2>
-        <p>This authentication adds an extra layer of protection to your account</p>
-        
-        
-        <button class="ui basic blue button" id='activate-button' (click)='toggleLatchActivation()'>Activate now!</button>
-        <div *ngIf="latchActivated === true">
-          <div class="ui left icon input">
-              <form [formGroup]="latchForm" (ngSubmit)="pair(latchForm)" novalidate>
-                  <div class="latch-container">
-                      <div class="ui icon input">
-                      <input  type="text" formControlName="code" [(ngModel)]="code" placeholder="Enter your pairing code">
-                      <i class="unlock icon"></i>
-                    </div>
-                  <button class="ui small basic blue button" type="submit" [disabled]="!latchForm.valid">Pair</button>
+           <div id="campaigns-backed">
+              <div class="box-title">Backed</div>
+              <br>
+              <div>
+                <p>{{user.campaignsBacked.length}}</p>
+              </div>
+            </div>
+            <div id="campaigns-backed">
+                <div class="box-title">Backed</div>
+                <br>
+                <div>
+                  <p>{{user.campaignsBacked.length}}</p>
                 </div>
-                </form>            
+              </div>
+         </div> -->
+         <table>
+            <tr>
+              <th><h4>Campaigns Backed:</h4></th>
+              <th><h4>Amount Disbursed:</h4></th>
+              <th><h4>Amount Commited:</h4></th>
+            </tr>
+            <tr>
+              <td>
+                  <div class="ui one tiny statistics">
+                      <div class=" violet statistic">
+                        <div class="value">
+                           {{user.campaignsBacked.length}}
+                        </div>
+                        <div class="label">
+                          Campaigns
+                        </div>
+                      </div>
+                    </div>
+            </td>
+              <td>
+                  <div class="ui one tiny statistics">
+                      <div class=" blue statistic">
+                        <div class="value">
+                            {{user.committedAmount}}
+                        </div>
+                        <div class="label">
+                          euros
+                        </div>
+                      </div>
+                    </div>
+              </td>
+              <td>
+                  <div class="ui one tiny statistics">
+                      <div class="pink statistic">
+                        <div class="value">
+                            {{user.disbursedAmount}}
+                        </div>
+                        <div class="label">
+                          euros
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+            </tr>
+         </table>
+       </div>
+    </div> 
+  </div>
+  
+  
+  
+  
+
+  <div class="ui icon message">
+    <i class="unlock alternate icon"></i>
+    <div class="content">
+      <div class="header">
+        Don't you have second factor authentication? If not, get it now!
+      </div>
+      <br>
+      <div *ngIf="latchActivated === true">
+    <div class="ui left icon input">
+        <form [formGroup]="latchForm" (ngSubmit)="pair(latchForm)" novalidate>
+            <div class="latch-container">
+                <div class="ui icon input">
+                <input  type="text" formControlName="code" [(ngModel)]="code" placeholder="Enter your pairing code">
+                <i class="unlock icon"></i>
+              </div>
+            <button class="ui small basic blue button" type="submit" [disabled]="!latchForm.valid">Pair</button>
           </div>
-        </div> 
+          </form>            
+    </div>
+  </div>
+      <button class="ui basic blue button" id='activate-button' (click)='toggleLatchActivation()'>Activate now!</button>
+    </div>
+  </div>
