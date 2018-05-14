@@ -35,6 +35,35 @@
     <canvas id='canvas' width="800" height="500"> {{ chart }} </canvas>
   </div>
   <div class="column stats">
+    <div class="row" id='numbers'>
+
+      <div class="ui pink tiny statistic">
+        <div class="value">
+          <i class="dollar icon"></i> {{ campaign.amountRaised }}
+        </div>
+        <div class="label">
+          Amount raised
+        </div>
+      </div>
+      <div class="ui grey tiny statistic">
+        <div class="value">
+          <i class="dollar icon"></i> {{ campaign.target }}
+        </div>
+        <div class="label">
+          Target
+        </div>
+      </div>
+      <div class="ui blue tiny statistic" id="stats">
+        <div class="value">
+          {{campaign.backers.length}}
+          <i class="users icon"></i>
+        </div>
+        <div class="label">
+          Backers
+        </div>
+      </div>
+
+    </div>
     <div class="row" id='del-countdown' *ngIf="!campaign.isAchieved">
       <h3>Remaining time</h3>
       <div id="clock">
@@ -57,9 +86,25 @@
       Campaign was achieved! Thank you! :)
     </div>
 
-    <button *ngIf="!campaign.isCompleted" class="ui basic blue button" id="donate-button" (click)='toggleVisibilityInputPayment()'>
-      <i class="paypal icon"></i> DONATE NOW!
-    </button>
+
+
+
+    <div id='payment-buttons' *ngIf="!campaign.isCompleted">
+      <button class="ui basic blue button">
+        <i class="paypal icon"></i> DONATE 5 USD
+      </button>
+      <button class="ui basic blue button">
+        <i class="paypal icon"></i> DONATE 10 USD
+      </button>
+      <button class="ui basic blue button">
+        <i class="paypal icon"></i> DONATE 15 USD
+      </button>
+      <button class="ui basic pink button">
+        <i class="paypal icon"></i> Choose amount!
+      </button>
+
+    </div>
+
 
     <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened">
       <div class="ui right labeled input" id='currency-input'>

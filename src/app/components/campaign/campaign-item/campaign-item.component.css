@@ -1,5 +1,4 @@
 #grid-container {
-  border: 1px solid blue;
   margin-top: 100px;
 }
 
@@ -7,6 +6,16 @@
   padding: 0;
   height: 60vh;
   position: relative;
+}
+
+#description {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#numbers {
+  display: flex;
+  justify-content: space-around;
 }
 
 h2 {
@@ -45,9 +54,6 @@ h2 {
 }
 
 
-.stats {
-  border:1px solid pink;
-}
 h3{
   text-align: center;
   letter-spacing: 5px;
@@ -100,7 +106,8 @@ background: linear-gradient(to top, #904e95, #e96443);
   float: left;
   width: 25%;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   color: #ddd;
   text-transform: uppercase;
   font-size: 13px;
