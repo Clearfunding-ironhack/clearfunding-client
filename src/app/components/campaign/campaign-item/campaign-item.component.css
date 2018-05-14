@@ -1,57 +1,109 @@
-#footer {
-  margin: 0 auto;
-  color: white;
-  margin: 0 auto;
-}
-#campaign-main-container {
+#grid-container {
+  border: 1px solid blue;
   margin-top: 100px;
 }
-#campaign-image-div img {
-  width: 400px;
+
+#picture {
+  padding: 0;
+  height: 60vh;
+  position: relative;
 }
 
-#first-row {
-  display: flex;
-}
-
-
-#campaign-category {
+h2 {
   position: absolute;
-  top: 62px;
-  right: 16px;
-  z-index: 99;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }
 
-#campaign-creator {
+#top-right{
   position: absolute;
-  top: 92px;
+  top: 8px;
   right: 16px;
-  z-index: 99;
 }
 
-#description {
-  margin-top: 20px;
-  text-align: justify;
+.share.alternate.icon {
+  color:white;
+  font-size: 1.5em;
 }
 
-#stats {
-  margin-bottom: 20px;
+.ui.labeled.button>.button {
+  border: 1px solid white;
 }
 
-#donate-button {
-  margin-top: 35px;
-  width: 100%;
-}
 
-#paypal-button {
-  margin-top: 35px;
-  width: 100%;
-}
 
-#currency-input {
-  margin-top:35px;
-}
+
 #like {
   color: white;
+}
+#campaign-category-div {
+  position: absolute;
+  bottom: 8px;
+  right: 27px;
+}
+
+
+.stats {
+  border:1px solid pink;
+}
+h3{
+  text-align: center;
+  letter-spacing: 5px;
+}
+#del-countdown{
+  margin: 3px auto;
+}
+#clock span{
+  float: left;
+  text-align: center;
+  font-size: 40px;
+  margin: 0 2.5%;
+  color: #fff;
+  padding: 20px;
+  width: 20%;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+#clock span:nth-child(1){
+  background: #4568DC;  
+background: -webkit-linear-gradient(to top, #B06AB3, #4568DC); 
+background: linear-gradient(to top, #B06AB3, #4568DC);
+
+  
+}
+#clock span:nth-child(2){
+  background: #11998e; 
+background: -webkit-linear-gradient(to top, #38ef7d, #11998e);
+background: linear-gradient(to top, #38ef7d, #11998e);
+
+}
+#clock span:nth-child(3){
+background: #36D1DC; 
+background: -webkit-linear-gradient(to top, #5B86E5, #36D1DC); 
+background: linear-gradient(to top, #5B86E5, #36D1DC); 
+
+}
+#clock span:nth-child(4){
+  background: #e96443;
+background: -webkit-linear-gradient(to top, #904e95, #e96443);
+background: linear-gradient(to top, #904e95, #e96443);
+
+}
+#clock:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+#units span{
+  float: left;
+  width: 25%;
+  text-align: center;
+  margin-top: 30px;
+  color: #ddd;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px rgba(10,10,10, 0.7);
 }
