@@ -1,21 +1,21 @@
 .row {
-  height: 900px;
+  height: 350px;
   background-color: white;
-  margin-left: 200px;
-  border: 1px solid black;
   margin-top: 100px;
 }
 .pic_base{
   height: 20%;
  background: linear-gradient(to top left, #C97FF0 37%, #7873F5 70%);
   background-size: cover;
+  display: flex;
+  justify-content: center;
 }
 .icon_base{
   height: 50px;
   width: 50px;
   padding: 2px;
   position: absolute;
-  margin-left: 630px;
+  margin-left: 550px;
   margin-top: 150px;
   align-items: center;
   border-radius: 100%;
@@ -32,8 +32,7 @@
   box-sizing: border-box;
   position: absolute;
   margin-top: 40px;
-  margin-left: 150px;
-  z-index: 200;
+  z-index: 98;
 }
 #title {
 margin-top: 70px;
@@ -49,16 +48,14 @@ text-align: center;
   font-family: 'Exo 2', sans-serif;
   text-align: justify;
   background-color: #eaeef2;
- 
 }
 
 #card-div {
-height: 210px;
+height: 250px;
 background-color: white;
 position: absolute;
 margin-top: 80px;
-margin-left: 23px;
-z-index: 99;
+z-index: 97;
 width: 350px;
 border-radius: 10px;
 box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
@@ -66,17 +63,32 @@ box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 .square {
 display: flex;
 justify-content: center;
+flex-direction: row;
+flex-wrap: wrap;
 margin-top: 2px;
-
+height: 120px;
 }
+.box-title{
+  width: 100%
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+th {
+  height: 50px;
+  vertical-align: top;
+}
+
+
 #campaigns-backed,
 #amount-committed,
-#amount-disbursed {
-border-right: 1px solid grey;
-height: 67px;
-width: 33%;
-position: relative;
-top:-9px;
+#amount-disbursed{
+width: 32%;
+display: flex
 
 }
 
@@ -87,7 +99,7 @@ margin-top: 0;
 
 #campaigns-backed,
 #amount-committed,
-#amount-disbursed p {
+#amount-disbursed h4 {
 font-size: 12px;
-padding-left: 4%;
+justify-content: center
 }
