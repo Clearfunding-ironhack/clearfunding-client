@@ -43,6 +43,7 @@ export class CampaignItemComponent implements OnInit {
   hours: number;
   minutes: number;
   seconds: number;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
@@ -150,6 +151,7 @@ export class CampaignItemComponent implements OnInit {
     });
   }
   makePayment(id: string, form: NgForm) {
+    this.loading = true;
     const campaignId = id;
     const amount = form.value.amount;
     this.paymentService.makePayment(campaignId, amount).subscribe(
@@ -167,6 +169,7 @@ export class CampaignItemComponent implements OnInit {
   }
 
   makeDefaultPayment(id: string, amount: string) {
+    this.loading = true;
     const campaignId = id;
     this.paymentService.makePayment(campaignId, amount).subscribe(
       (paypalLink) => {

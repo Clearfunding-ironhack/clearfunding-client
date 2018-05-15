@@ -18,6 +18,11 @@
   justify-content: space-around;
 }
 
+#loading {
+  z-index: 99;
+  color: #36D1DC; 
+}
+
 h2 {
   position: absolute;
   top: 50%;

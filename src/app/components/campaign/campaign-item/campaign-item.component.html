@@ -7,7 +7,7 @@
     <h2>{{ campaign.title }} </h2>
     <div id="top-right">
       <div class="ui labeled button" tabindex="0" id="like-box">
-        <div class="ui basic button box" (click)='followCampaign(campaign.id)'>
+        <div class="ui basic button box" id='button-like'(click)='followCampaign(campaign.id)'>
           <a id='like'>
             <i class="heart icon"></i> Like </a>
         </div>
@@ -86,6 +86,13 @@
       Campaign was achieved! Thank you! :)
     </div>
 
+    <div class="ui segment" *ngIf="loading">
+      <div class="ui active inverted dimmer" id='loading'>
+        <div class="ui large loader">Connecting with paypal</div>
+      </div>
+    </div>
+
+
     <div id='payment-buttons' *ngIf="!campaign.isCompleted">
       <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '5')">
         <i class="paypal icon"></i> DONATE 5 USD
@@ -102,6 +109,7 @@
 
     </div>
 
+ 
     <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened">
       <div class="ui right labeled input" id='currency-input'>
         <label for="amount" class="ui label">$</label>
