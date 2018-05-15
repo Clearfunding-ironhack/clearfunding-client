@@ -39,15 +39,10 @@ export class CampaignItemComponent implements OnInit {
   error: string;
   inputPaymentOpened: boolean = false;
   chart: any;
-  // @ViewChild('clock') clockElement: ElementRef;
-  // @ViewChild('days') daysElement: ElementRef;
-  // @ViewChild('hours') hoursElement: ElementRef;
-  // @ViewChild('minutes') minutesElement: ElementRef;
-  // @ViewChild('seconds') secondsElement: ElementRef;
-  days: number = 0;
-  hours: number = 0;
-  minutes: number = 0;
-  seconds: number = 0;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 
   constructor(
     private router: Router,
@@ -71,7 +66,7 @@ export class CampaignItemComponent implements OnInit {
   }
   getRemainingTime = deadline => {
     const now = +new Date(),
-      remainingTime = (+new Date(deadline) - now + 1000) / 1000,
+      remainingTime = Number((+new Date(deadline) - now + 1000) / 1000),
       remainingSeconds = Number(('0' + Math.floor(remainingTime % 60)).slice(-2)),
       remainingMinutes = Number(('0' + Math.floor(remainingTime / 60 % 60)).slice(-2)),
       remainingHours = Number(('0' + Math.floor(remainingTime / 3600 % 24)).slice(-2)),
@@ -86,10 +81,6 @@ export class CampaignItemComponent implements OnInit {
   }
 
   countdown = (deadline, finalMessage) => {
-   const time = this.getRemainingTime(deadline);
-    if (time.remainingTime <= 1) {
-      return;
-    }
     const timerUpdate = setInterval(() => {
       const time = this.getRemainingTime(deadline);
       this.days = time.remainingDays;
