@@ -64,13 +64,13 @@
       </div>
 
     </div>
-    <div class="row" id='del-countdown' *ngIf="!campaign.isAchieved">
+    <div class="row" id='del-countdown' *ngIf="!campaign.isCompleted">
       <h3>Remaining time</h3>
       <div id="clock">
-        <span #days></span>
-        <span #hours></span>
-        <span #minutes></span>
-        <span #seconds></span>
+        <span #days>{{days }}</span>
+        <span #hours>{{ hours }}</span>
+        <span #minutes>{{ minutes }}</span>
+        <span #seconds>{{ seconds }}</span>
       </div>
       <div id="units">
         <span>Days</span>
@@ -85,9 +85,6 @@
     <div class="ui success message" *ngIf="campaign.isCompleted">
       Campaign was achieved! Thank you! :)
     </div>
-
-
-
 
     <div id='payment-buttons' *ngIf="!campaign.isCompleted">
       <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '5')">

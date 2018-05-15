@@ -40,10 +40,14 @@ export class CampaignItemComponent implements OnInit {
   inputPaymentOpened: boolean = false;
   chart: any;
   // @ViewChild('clock') clockElement: ElementRef;
-  @ViewChild('days') daysElement: ElementRef;
-  @ViewChild('hours') hoursElement: ElementRef;
-  @ViewChild('minutes') minutesElement: ElementRef;
-  @ViewChild('seconds') secondsElement: ElementRef;
+  // @ViewChild('days') daysElement: ElementRef;
+  // @ViewChild('hours') hoursElement: ElementRef;
+  // @ViewChild('minutes') minutesElement: ElementRef;
+  // @ViewChild('seconds') secondsElement: ElementRef;
+  days: number = 0;
+  hours: number = 0;
+  minutes: number = 0;
+  seconds: number = 0;
 
   constructor(
     private router: Router,
@@ -68,9 +72,9 @@ export class CampaignItemComponent implements OnInit {
   getRemainingTime = deadline => {
     const now = +new Date(),
       remainingTime = (+new Date(deadline) - now + 1000) / 1000,
-      remainingSeconds = ('0' + Math.floor(remainingTime % 60)).slice(-2),
-      remainingMinutes = ('0' + Math.floor(remainingTime / 60 % 60)).slice(-2),
-      remainingHours = ('0' + Math.floor(remainingTime / 3600 % 24)).slice(-2),
+      remainingSeconds = Number(('0' + Math.floor(remainingTime % 60)).slice(-2)),
+      remainingMinutes = Number(('0' + Math.floor(remainingTime / 60 % 60)).slice(-2)),
+      remainingHours = Number(('0' + Math.floor(remainingTime / 3600 % 24)).slice(-2)),
       remainingDays = Math.floor(remainingTime / (3600 * 24));
     return {
       remainingTime,
@@ -82,16 +86,16 @@ export class CampaignItemComponent implements OnInit {
   }
 
   countdown = (deadline, finalMessage) => {
-    const days = this.daysElement.nativeElement;
-    const hours = this.hoursElement.nativeElement;
-    const minutes = this.minutesElement.nativeElement;
-    const seconds = this.secondsElement.nativeElement;
+   const time = this.getRemainingTime(deadline);
+    if (time.remainingTime <= 1) {
+      return;
+    }
     const timerUpdate = setInterval(() => {
       const time = this.getRemainingTime(deadline);
-      days.innerHTML = `${time.remainingDays}`;
-      hours.innerHTML = `${time.remainingHours}`;
-      minutes.innerHTML = `${time.remainingMinutes}`;
-      seconds.innerHTML = `${time.remainingSeconds}`;
+      this.days = time.remainingDays;
+      this.hours = time.remainingHours;
+      this.minutes = time.remainingMinutes;
+      this.seconds = time.remainingSeconds;
       if (time.remainingTime <= 1) {
         clearInterval(timerUpdate);
       }
