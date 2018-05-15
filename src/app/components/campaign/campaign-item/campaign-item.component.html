@@ -7,7 +7,7 @@
     <h2>{{ campaign.title }} </h2>
     <div id="top-right">
       <div class="ui labeled button" tabindex="0" id="like-box">
-        <div class="ui basic button box" id='button-like'(click)='followCampaign(campaign.id)'>
+        <div class="ui basic button box" id='button-like' (click)='followCampaign(campaign.id)'>
           <a id='like'>
             <i class="heart icon"></i> Like </a>
         </div>
@@ -15,20 +15,29 @@
           {{ campaign.followers.length}}
         </a>
       </div>
-      <button class="ui basic icon button" type='button'>
-        <i class="share alternate icon"></i>
-      </button>
-    </div>
+
+  </div>
     <div id="campaign-category-div">
       <a class="ui blue tag label" id="campaign-category">{{campaign.categories}} </a>
     </div>
 
   </div>
+  <div id="social">
+      <share-buttons [theme]="'material-light'"
+      [include]="['twitter','google','linkedin','pinterest','email']"
+      [show]="5"
+      [size]="-4"
+      [description]="'Hey!check this campaign and help me raise the money!'"
+      [autoSetMeta]="false"
+     ></share-buttons>
+  </div>
+ 
 
   <div class="ui text container" id="text">
     <div id="description"> {{ campaign.description }}</div>
   </div>
 </div>
+
 
 <div class="ui two column stackable grid">
   <div [hidden]="!chart" class="column stats">
@@ -37,7 +46,7 @@
   <div class="column stats">
     <div class="row" id='numbers'>
 
-      <div class="ui pink tiny statistic">
+      <div class="ui blue tiny statistic">
         <div class="value">
           <i class="dollar icon"></i> {{ campaign.amountRaised }}
         </div>
@@ -53,7 +62,7 @@
           Target
         </div>
       </div>
-      <div class="ui blue tiny statistic" id="stats">
+      <div class="ui pink tiny statistic" id="stats">
         <div class="value">
           {{campaign.backers.length}}
           <i class="users icon"></i>
@@ -109,7 +118,7 @@
 
     </div>
 
- 
+
     <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened">
       <div class="ui right labeled input" id='currency-input'>
         <label for="amount" class="ui label">$</label>

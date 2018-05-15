@@ -83,7 +83,9 @@
 
   <div class="row">
 <h2>Campaigns backed:</h2>
-<p>{{ user.campaignsBacked }}</p>
+<ul>
+  <li *ngFor="let c of user.campaignsBacked">{{c}}</li>
+</ul>
    
   </div>
   

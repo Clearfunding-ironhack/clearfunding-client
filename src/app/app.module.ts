@@ -31,7 +31,8 @@ import { NotificationsComponent } from './components/misc/notifications/notifica
 import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 import { ChartsModule } from 'ng2-charts';
 import { ChartComponent } from './components/misc/chart/chart.component';
-
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,10 @@ import { ChartComponent } from './components/misc/chart/chart.component';
     FormsModule,
     BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    ShareButtonsModule.forRoot()
 
   ],
   providers: [
