@@ -26,7 +26,7 @@ export class CampaignService extends BaseApiService {
       .catch(error => this.handleError(error));
   }
   
-  followCampaign(id:string): Observable<string> {
+  followCampaign(id:string): Observable<Campaign> {
     return this.http.put(`${CampaignService.CAMPAIGNS_API}/${id}/follow`, null, BaseApiService.defaultOptions)
       .map((res: Response) => res.json().message)
       .catch(error => this.handleError(error));

@@ -39,7 +39,7 @@ export class CampaignItemComponent implements OnInit {
   error: string;
   inputPaymentOpened: boolean = false;
   chart: any;
-  @ViewChild('clock') clockElement: ElementRef;
+  // @ViewChild('clock') clockElement: ElementRef;
   @ViewChild('days') daysElement: ElementRef;
   @ViewChild('hours') hoursElement: ElementRef;
   @ViewChild('minutes') minutesElement: ElementRef;
@@ -61,7 +61,7 @@ export class CampaignItemComponent implements OnInit {
             .subscribe(campaign => {
               this.campaign = campaign;
               this.drawChart();
-              this.countdown(this.campaign.dueDate, this.clockElement.nativeElement, 'End of campaign');
+              this.countdown(this.campaign.dueDate, 'End of campaign');
             });
         });
   }
@@ -81,8 +81,7 @@ export class CampaignItemComponent implements OnInit {
     };
   }
 
-  countdown = (deadline, element, finalMessage) => {
-    const clock = this.clockElement.nativeElement;
+  countdown = (deadline, finalMessage) => {
     const days = this.daysElement.nativeElement;
     const hours = this.hoursElement.nativeElement;
     const minutes = this.minutesElement.nativeElement;
@@ -95,7 +94,6 @@ export class CampaignItemComponent implements OnInit {
       seconds.innerHTML = `${time.remainingSeconds}`;
       if (time.remainingTime <= 1) {
         clearInterval(timerUpdate);
-        clock.innerHTML = finalMessage;
       }
     }, 1000)
   }
@@ -197,6 +195,7 @@ export class CampaignItemComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log(data);
+            this.campaign = data;
           },
           (error) => {
             this.error = error.message;
