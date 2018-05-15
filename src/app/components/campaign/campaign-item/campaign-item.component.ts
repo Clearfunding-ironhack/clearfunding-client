@@ -1,11 +1,32 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Campaign } from '../../../shared/models/campaign.model';
-import { ActivatedRoute, Router, Params } from '@angular/router';
-import { CampaignService } from '../../../shared/services/campaign.service';
-import { Observable } from 'rxjs/Rx';
-import { NgForm } from '@angular/forms';
-import { PaymentService } from '../../../shared/services/payment.service';
-import { Chart } from 'chart.js';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
+import {
+  Campaign
+} from '../../../shared/models/campaign.model';
+import {
+  ActivatedRoute,
+  Router,
+  Params
+} from '@angular/router';
+import {
+  CampaignService
+} from '../../../shared/services/campaign.service';
+import {
+  Observable
+} from 'rxjs/Rx';
+import {
+  NgForm, NgModel
+} from '@angular/forms';
+import {
+  PaymentService
+} from '../../../shared/services/payment.service';
+import {
+  Chart
+} from 'chart.js';
 
 
 @Component({
@@ -35,29 +56,29 @@ export class CampaignItemComponent implements OnInit {
     this.routes
       .params
       .subscribe(
-       (params: Params) => {
-         this.campaignsService.getCampaign(params['id'])
-          .subscribe(campaign => {
-            this.campaign = campaign;
-            this.drawChart();
-            this.countdown(this.campaign.dueDate, this.clockElement.nativeElement, 'End of campaign');
+        (params: Params) => {
+          this.campaignsService.getCampaign(params['id'])
+            .subscribe(campaign => {
+              this.campaign = campaign;
+              this.drawChart();
+              this.countdown(this.campaign.dueDate, this.clockElement.nativeElement, 'End of campaign');
             });
-      });
+        });
   }
   getRemainingTime = deadline => {
     const now = +new Date(),
-        remainingTime = (+new Date(deadline) - now + 1000) / 1000,
-        remainingSeconds = ('0' + Math.floor(remainingTime % 60)).slice(-2),
-        remainingMinutes = ('0' + Math.floor(remainingTime / 60 % 60)).slice(-2),
-        remainingHours = ('0' + Math.floor(remainingTime / 3600 % 24)).slice(-2),
-        remainingDays = Math.floor(remainingTime/ (3600 * 24));
-        return {
-          remainingTime,
-          remainingSeconds,
-          remainingMinutes,
-          remainingHours,
-          remainingDays
-        };
+      remainingTime = (+new Date(deadline) - now + 1000) / 1000,
+      remainingSeconds = ('0' + Math.floor(remainingTime % 60)).slice(-2),
+      remainingMinutes = ('0' + Math.floor(remainingTime / 60 % 60)).slice(-2),
+      remainingHours = ('0' + Math.floor(remainingTime / 3600 % 24)).slice(-2),
+      remainingDays = Math.floor(remainingTime / (3600 * 24));
+    return {
+      remainingTime,
+      remainingSeconds,
+      remainingMinutes,
+      remainingHours,
+      remainingDays
+    };
   }
 
   countdown = (deadline, element, finalMessage) => {
@@ -67,7 +88,7 @@ export class CampaignItemComponent implements OnInit {
     const minutes = this.minutesElement.nativeElement;
     const seconds = this.secondsElement.nativeElement;
     const timerUpdate = setInterval(() => {
-    const time = this.getRemainingTime(deadline);
+      const time = this.getRemainingTime(deadline);
       days.innerHTML = `${time.remainingDays}`;
       hours.innerHTML = `${time.remainingHours}`;
       minutes.innerHTML = `${time.remainingMinutes}`;
@@ -77,8 +98,7 @@ export class CampaignItemComponent implements OnInit {
         clock.innerHTML = finalMessage;
       }
     }, 1000)
-    
-  };
+  }
 
 
   drawChart() {
@@ -91,7 +111,7 @@ export class CampaignItemComponent implements OnInit {
           const txt = centerConfig.text;
           const color = centerConfig.color || '#000';
           const sidePadding = centerConfig.sidePadding || 20;
-          const sidePaddingCalculated = (sidePadding/100) * (chart.innerRadius * 2)
+          const sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
           ctx.font = "30px " + fontStyle;
           const stringWidth = ctx.measureText(txt).width;
           const elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
@@ -103,7 +123,7 @@ export class CampaignItemComponent implements OnInit {
           ctx.textBaseline = 'middle';
           const centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
           const centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
-          ctx.font = fontSizeToUse+"px " + fontStyle;
+          ctx.font = fontSizeToUse + "px " + fontStyle;
           ctx.fillStyle = color;
           ctx.fillText(txt, centerX, centerY);
         }
@@ -113,14 +133,12 @@ export class CampaignItemComponent implements OnInit {
     this.chart = new Chart('canvas', {
       type: 'doughnut',
       data: {
-        labels: ["Amount Raised","Target"],
-        datasets: [
-          {
-            // label: "Amount Raised (USD)",
-            backgroundColor: ["#E8C3FD", "#64A1FF"],
-            data: [this.campaign.amountRaised, this.campaign.target]
-          }
-        ]
+        labels: ["Amount Raised", "Target"],
+        datasets: [{
+          // label: "Amount Raised (USD)",
+          backgroundColor: ["#00e5ff", "#DBDBDB"],
+          data: [this.campaign.amountRaised, this.campaign.target]
+        }]
       },
       options: {
         title: {
@@ -129,16 +147,15 @@ export class CampaignItemComponent implements OnInit {
         },
         elements: {
           center: {
-          text: `${this.campaign.percentageAchieved} %`,
-          color: '#36A2EB',
-          fontStyle: 'Helvetica',
-          sidePadding: 15
+            text: `${Math.floor(Number(this.campaign.percentageAchieved))} %`,
+            color: 'gray',
+            fontStyle: 'Helvetica',
+            sidePadding: 15
+          }
         }
       }
-      }
-  });
+    });
   }
-
   makePayment(id: string, form: NgForm) {
     const campaignId = id;
     const amount = form.value.amount;
@@ -156,23 +173,37 @@ export class CampaignItemComponent implements OnInit {
 
   }
 
-  toggleVisibilityInputPayment() {
-    this.inputPaymentOpened = !this.inputPaymentOpened;
-  }
-
-  followCampaign(id: string) {
-    console.log('it works');
-    this.campaignsService.followCampaign(id)
-      .subscribe(
-        (data) => {
-        console.log(data);
-        },
-        (error) => {
-          this.error = error.message;
+  makeDefaultPayment(id: string, amount: string) {
+    const campaignId = id;
+    this.paymentService.makePayment(campaignId, amount).subscribe(
+      (paypalLink) => {
+        location.replace(paypalLink);
+      },
+      (error) => {
+        if (error.status === 403) {
+          this.router.navigate(['/login']);
         }
-      );
+      }
+    );
   }
 
-  
+    toggleVisibilityInputPayment() {
+      this.inputPaymentOpened = !this.inputPaymentOpened;
+    }
 
-}
+    followCampaign (id: string) {
+      console.log('it works');
+      this.campaignsService.followCampaign(id)
+        .subscribe(
+          (data) => {
+            console.log(data);
+          },
+          (error) => {
+            this.error = error.message;
+          }
+        );
+    }
+
+  }
+
+

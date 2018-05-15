@@ -1,11 +1,13 @@
 .row {
   height: 350px;
   background-color: white;
-  margin-top: 100px;
+  margin-top: 64px;
 }
 .pic_base{
-  height: 20%;
- background: linear-gradient(to top left, #C97FF0 37%, #7873F5 70%);
+  height: 44%;
+  background: #e040fb;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4fc3f7, #e040fb);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4fc3f7, #e040fb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-size: cover;
   display: flex;
   justify-content: center;

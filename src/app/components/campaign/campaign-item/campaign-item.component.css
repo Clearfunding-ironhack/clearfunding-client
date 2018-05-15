@@ -72,19 +72,20 @@ h3{
   border-radius: 20px;
   box-sizing: border-box;
 }
+
 #clock span:nth-child(1){
+  background: #11998e; 
+  background: -webkit-linear-gradient(to top, #38ef7d, #11998e);
+  background: linear-gradient(to top, #38ef7d, #11998e);
+}
+
+#clock span:nth-child(2){
   background: #4568DC;  
 background: -webkit-linear-gradient(to top, #B06AB3, #4568DC); 
 background: linear-gradient(to top, #B06AB3, #4568DC);
-
-  
 }
-#clock span:nth-child(2){
-  background: #11998e; 
-background: -webkit-linear-gradient(to top, #38ef7d, #11998e);
-background: linear-gradient(to top, #38ef7d, #11998e);
 
-}
+
 #clock span:nth-child(3){
 background: #36D1DC; 
 background: -webkit-linear-gradient(to top, #5B86E5, #36D1DC); 

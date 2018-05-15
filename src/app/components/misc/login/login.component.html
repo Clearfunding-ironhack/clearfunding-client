@@ -1,6 +1,7 @@
  <body>
         <div class="box">
-            <h1 class='ui header' id="header-login">Login</h1>
+            <img class='ui left aligned image' src="./../assets/logo.png">
+            <!-- <h2 class='ui header' id="header-login">Login</h2> -->
             <form  [formGroup]='loginForm' (ngSubmit)='onSubmitLogin(loginForm)'>
                 <div class="inputBox">
                     <input 
@@ -28,7 +29,7 @@
                   *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter a valid password!
                 </div>
                 </div>
-                <button class="ui blue inverted button" type='submit' id='submit-btn' >Submit</button>
+                <button class="ui blue inverted button" type='submit' id='submit-btn' >Log in</button>
                 <a [routerLink]="['/login/forgot']">Forgot your password?</a>
                 <div>
                 <p>Still not a user? <a [routerLink]="['/signup']">Sign up quickly! </a> </p>

@@ -1,9 +1,11 @@
 <body>
 
   <div class="box">
-    <img class='ui middle aligned image' src="./../assets/clearfundingGota.png">
-    <h1 class='ui header' id="header-login">Join us!</h1>
-    <p><span id="required-fields">(Fields with an * are required)</span></p>
+        <img class='ui middle aligned image' src="./../assets/logo.png">
+        <!-- <h1 class='ui header' id="header-login">Join us!</h1> -->
+
+    
+    
     <form [formGroup]='signupForm' (ngSubmit)='onSubmitSignup(signupForm)'>
       <div class=" inputBox">
         <div class="ui left icon input bar">
@@ -82,7 +84,8 @@
 
       </div>
 
-      <button class="ui fluid blue button" type="submit" id="submit-signup" [disabled]="!signupForm.valid">Submit</button>
+      <button class="ui fluid blue button" type="submit" id="submit-signup" [disabled]="!signupForm.valid">Sign up!</button>
+      <p id="already-user">Already a user? <strong> <a [routerLink]="['/login']">Log in! </a> </strong> </p>
 
       <div class="ui success message"*ngIf="signupStatusOK && user">
           Your account was created! :)

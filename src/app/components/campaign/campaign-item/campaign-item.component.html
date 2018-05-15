@@ -90,21 +90,20 @@
 
 
     <div id='payment-buttons' *ngIf="!campaign.isCompleted">
-      <button class="ui basic blue button">
+      <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '5')">
         <i class="paypal icon"></i> DONATE 5 USD
       </button>
-      <button class="ui basic blue button">
+      <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '10')">
         <i class="paypal icon"></i> DONATE 10 USD
       </button>
-      <button class="ui basic blue button">
+      <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '15')">
         <i class="paypal icon"></i> DONATE 15 USD
       </button>
-      <button class="ui basic pink button">
+      <button class="ui basic pink button" (click)="toggleVisibilityInputPayment()">
         <i class="paypal icon"></i> Choose amount!
       </button>
 
     </div>
-
 
     <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened">
       <div class="ui right labeled input" id='currency-input'>
@@ -112,7 +111,7 @@
         <input [(ngModel)]="amount" type="text" placeholder="Amount" name='amount' id="amount">
         <div class="ui basic label">.00</div>
       </div>
-      <button class="ui basic blue button" id="paypal-button" type="submit">Go to paypal</button>
+      <button class="ui basic blue button" id="paypal-button" type="submit">Donate now</button>
 
     </form>
 
