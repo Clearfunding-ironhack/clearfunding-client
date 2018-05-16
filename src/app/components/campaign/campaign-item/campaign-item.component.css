@@ -69,10 +69,13 @@ h3{
   font-size: 40px;
   margin: 0 2.5%;
   color: #fff;
-  padding: 18px;
+  padding: 20px;
+  padding-top:24px;
+  padding-left: 18px;
   width: 20%;
-  border-radius: 20px;
+  border-radius: 50%;
   box-sizing: border-box;
+  height: 72px;
 }
 
 #clock span:nth-child(1){
@@ -145,6 +148,8 @@ form {
 #currency-input {
   width: 76px;
   margin-left: 30px;
+  color:#0E6EB8;
+ 
 }
 
 #paypal-button {
@@ -156,5 +161,14 @@ form {
   color: #F095FF;
   border-color:  #F095FF;
   background-color: transparent;
+  margin-top: 50px;
 }
 
+#ceros {
+  color:  #0E6EB8 important!;
+  border: 1px solid #0E6EB8;
+}
+
+#amount {
+  border: 1px solid #0E6EB8;
+}

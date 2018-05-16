@@ -92,7 +92,7 @@
       Campaign was achieved! Thank you! :)
     </div>
     <div class="ui message" *ngIf="campaign.isCompleted">
-      Campaign was achieved! Thank you! :)
+      Campaign has finished! No more contributions can be made
     </div>
 
     <div class="ui segment" *ngIf="loading">
@@ -132,9 +132,9 @@
 
     <form (ngSubmit)="makePayment(campaign.id, paymentForm)" #paymentForm="ngForm" *ngIf="inputPaymentOpened">
       <div class="ui right basic labeled blue input" id='currency-input'>
-        <label for="amount" class="ui label">$</label>
-        <input [(ngModel)]="amount" type="text" placeholder="amount" name='amount' id="amount">
-        <div class="ui basic label">.00</div>
+        <label for="amount" class="ui basic blue label">$</label>
+        <input [(ngModel)]="amount" type="text" name='amount' id="amount">
+        <div class="ui basic label" id='ceros'>.00</div>
       </div>
       <button class="ui basic blue button" id="paypal-button" type="submit">Donate now</button>
 

@@ -114,5 +114,6 @@ padding-bottom: 20px
 }
 
 .container-campaigns{
-  padding-top: 70px;
+  /* padding-top: 70px; */
+  margin-top: 80px;
 }
