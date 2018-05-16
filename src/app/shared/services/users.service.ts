@@ -19,7 +19,10 @@ export class UsersService extends BaseApiService {
   }
   get(id): Observable<User> {
     return this.http.get(`${UsersService.USERS_API}/${id}`, BaseApiService.defaultOptions)
-      .map(res => res.json())
+      .map(res => {
+        console.log(res.json());
+        return res.json();}
+      )
       .catch(error => this.handleError(error));
   }
   pair(code, user: User): Observable<User> {
