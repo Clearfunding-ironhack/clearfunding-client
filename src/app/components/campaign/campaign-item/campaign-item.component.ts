@@ -130,7 +130,7 @@ export class CampaignItemComponent implements OnInit {
         labels: ["Amount Raised", "Target"],
         datasets: [{
           // label: "Amount Raised (USD)",
-          backgroundColor: ["#36D1DC", "#DBDBDB"],
+          backgroundColor: ["#8BFCFE", "#DBDBDB"],
           data: [this.campaign.amountRaised, this.campaign.target]
         }]
       },

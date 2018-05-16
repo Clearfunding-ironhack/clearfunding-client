@@ -40,16 +40,10 @@ h2 {
   right: 16px;
 }
 
-.share.alternate.icon {
-  color:white;
-  font-size: 1.5em;
-}
 
 .ui.labeled.button>.button {
   border: 1px solid white;
 }
-
-
 
 
 #like {
@@ -64,10 +58,10 @@ h2 {
 
 h3{
   text-align: center;
-  letter-spacing: 5px;
+  margin-bottom: 30px;
 }
 #del-countdown{
-  margin: 3px auto;
+  margin-top: 20px;
 }
 #clock span{
   float: left;
@@ -75,14 +69,14 @@ h3{
   font-size: 40px;
   margin: 0 2.5%;
   color: #fff;
-  padding: 20px;
+  padding: 18px;
   width: 20%;
   border-radius: 20px;
   box-sizing: border-box;
 }
 
 #clock span:nth-child(1){
-  background: #FBD3E9;  /* fallback for old browsers */
+background: #FBD3E9;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #BB377D, #FBD3E9);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #BB377D, #FBD3E9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
@@ -107,11 +101,10 @@ background: linear-gradient(to top, #64A1FF, #8BFCFE);
 
 }
 #clock span:nth-child(4){
-  background: #ad5389;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #9D50BB;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6E48AA, #9D50BB);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6E48AA, #9D50BB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
-
 }
 #clock:after{
   content: "";
@@ -123,7 +116,6 @@ background: linear-gradient(to top, #64A1FF, #8BFCFE);
   width: 25%;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 30px;
   color: #ddd;
   text-transform: uppercase;
   font-size: 13px;
@@ -138,3 +130,31 @@ background: linear-gradient(to top, #64A1FF, #8BFCFE);
 .ui.pink.statistic > .value {
   color:#3c1053;
 }
+
+#payment-buttons {
+margin-top: 50px;
+padding-top: 10px;
+padding-left: 5px;
+margin-bottom: 40px;
+}
+
+form {
+  margin-top:0;
+}
+
+#currency-input {
+  width: 76px;
+  margin-left: 30px;
+}
+
+#paypal-button {
+  margin-left: 100px;
+  width: 145px;
+}
+
+.ui.message {
+  color: #F095FF;
+  border-color:  #F095FF;
+  background-color: transparent;
+}
+
