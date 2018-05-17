@@ -83,6 +83,8 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-
+  onClickTitle(id: number) {
+    this.router.navigate(['/campaigns', id]);
+  }
 }
 

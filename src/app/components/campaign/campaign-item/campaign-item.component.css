@@ -157,11 +157,12 @@ form {
   width: 145px;
 }
 
-.ui.message {
-  color: #F095FF;
-  border-color:  #F095FF;
+.ui.icon.message {
+
   background-color: transparent;
-  margin-top: 50px;
+  margin-top: 10px;
+  border: 1px solid #F095FF;
+
 }
 
 #ceros {

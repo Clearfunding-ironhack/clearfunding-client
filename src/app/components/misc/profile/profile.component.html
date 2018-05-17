@@ -1,114 +1,183 @@
 <app-navbar></app-navbar>
 
-   
+
 
 <div class="row">
-    <div class="pic_base">
-         <img src={{user.image}} width=100 id="profile_pic" alt="">
-     
-       <div id='card-div'>
-          <h1 id="title">Barb</h1>
-         <p>Member since 2018</p>
-         <hr>
-       <!-- <div class="square">
-           <div id="campaigns-backed">
-             <div class="box-title">Backed</div>
-             <div class="box-body">
-               <p>{{user.campaignsBacked.length}}</p>
-             </div>
-           </div>
-           <div id="campaigns-backed">
-              <div class="box-title">Backed</div>
-              <br>
-              <div>
-                <p>{{user.campaignsBacked.length}}</p>
-              </div>
-            </div>
-            <div id="campaigns-backed">
-                <div class="box-title">Backed</div>
-                <br>
-                <div>
-                  <p>{{user.campaignsBacked.length}}</p>
+  <div class="pic_base">
+    <img src={{user.image}} width=100 id="profile_pic" alt="">
+
+    <div id='card-div'>
+      <h1 id="title">Barb</h1>
+      <p>Usuario desde 2018</p>
+      <hr>
+      <table>
+        <tr>
+          <th>
+            <h4>Campañas financiadas:</h4>
+          </th>
+          <th>
+            <h4>Cantidad comprometida:</h4>
+          </th>
+          <th>
+            <h4>Cantidad desembolsada:</h4>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="ui one tiny statistics">
+              <div class=" violet statistic">
+                <div class="value">
+                  {{user.campaignsBacked.length}}
+                </div>
+                <div class="label">
+                  Campaigns
                 </div>
               </div>
-         </div> -->
-         <table>
-            <tr>
-              <th><h4>Campaigns Backed:</h4></th>
-              <th><h4>Amount Committed:</h4></th>
-              <th><h4>Amount Disbursed:</h4></th>
-            </tr>
-            <tr>
-              <td>
-                  <div class="ui one tiny statistics">
-                      <div class=" violet statistic">
-                        <div class="value">
-                           {{user.campaignsBacked.length}}
-                        </div>
-                        <div class="label">
-                          Campaigns
-                        </div>
-                      </div>
-                    </div>
-            </td>
-              <td>
-                  <div class="ui one tiny statistics">
-                      <div class=" blue statistic">
-                        <div class="value">
-                            {{user.committedAmount}}
-                        </div>
-                        <div class="label">
-                          euros
-                        </div>
-                      </div>
-                    </div>
-              </td>
-              <td>
-                  <div class="ui one tiny statistics">
-                      <div class="pink statistic">
-                        <div class="value">
-                            {{user.disbursedAmount}}
-                        </div>
-                        <div class="label">
-                          euros
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-            </tr>
-         </table>
-       </div>
-    </div> 
-  </div>
-
-  <div class="row">
-<h2>Campaigns backed:</h2>
-<ul>
-  <li *ngFor="let c of user.campaignsBacked">{{c}}</li>
-</ul>
-   
-  </div>
-  
-  <div class="ui icon message">
-    <i class="unlock alternate icon"></i>
-    <div class="content">
-      <div class="header">
-        Do you have second factor authentication? If not, get it now!
-      </div>
-      <br>
-      <div *ngIf="latchActivated === true">
-    <div class="ui left icon input">
-        <form [formGroup]="latchForm" (ngSubmit)="pair(latchForm)" novalidate>
-            <div class="latch-container">
-                <div class="ui icon input">
-                <input  type="text" formControlName="code" [(ngModel)]="code" placeholder="Enter your pairing code">
-                <i class="unlock icon"></i>
+            </div>
+          </td>
+          <td>
+            <div class="ui one tiny statistics">
+              <div class=" blue statistic">
+                <div class="value">
+                  {{user.committedAmount}}
+                </div>
+                <div class="label">
+                  euros
+                </div>
               </div>
-            <button class="ui small basic blue button" type="submit" [disabled]="!latchForm.valid">Pair</button>
+            </div>
+          </td>
+          <td>
+            <div class="ui one tiny statistics">
+              <div class="pink statistic">
+                <div class="value">
+                  {{user.disbursedAmount}}
+                </div>
+                <div class="label">
+                  euros
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<h4 class="ui horizontal divider header">
+  <i class="plus icon icon-header"></i>
+  Campañas a las que has contribuido
+</h4>
+
+<div *ngIf="user.campaignsBacked.length <= 0" class="ui container">
+  <h5 class="ui header center aligned"> Aún no has contribuido a ninguna campaña</h5>
+</div>
+
+
+<div *ngIf="user.campaignsBacked.length > 0" class="ui container scroll-container">
+  <div class="ui list">
+    <div class="item" *ngFor="let c of user.campaignsBacked">
+      <div class="content">
+        <a (click)="onClickTitle(c.id)" class="header">{{ c.title }}</a>
+        <div class="description">
+          <p *ngIf="campaignCompleted"> Campaña
+            <strong>terminada</strong> y conseguida al
+            <strong>{{ c.percentageAchieved }}%</strong>
+          </p>
+          <p *ngIf="!campaignCompleted"> Campaña
+            <strong>aún </strong> no terminada y conseguida al
+            <strong>{{ c.percentageAchieved }}%</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h4 class="ui horizontal divider header">
+  <i class="heart outline icon icon-header"></i>
+  Campañas que sigues:
+</h4>
+
+<div *ngIf="user.campaignsFollowed.length <= 0" class="ui container">
+  <h5 class="ui header center aligned"> Aún no sigues ninguna campaña</h5>
+</div>
+
+
+<div *ngIf="user.campaignsFollowed.length > 0" class="ui container scroll-container">
+  <div class="ui list">
+    <div class="item" *ngFor="let c of user.campaignsFollowed">
+      <div class="content">
+        <a (click)="onClickTitle(c.id)" class="header">{{ c.title }}</a>
+        <div class="description">
+          <p *ngIf="campaignCompleted"> Campaña
+            <strong>terminada</strong> y conseguida al
+            <strong>{{ c.percentageAchieved }}%</strong>
+          </p>
+          <p *ngIf="!campaignCompleted"> Campaña
+            <strong>aún </strong> no terminada y conseguida al
+            <strong>{{ c.percentageAchieved }}%</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4 class="ui horizontal divider header">
+  <i class="paint brush icon icon-header"></i>
+  Campañas creadas
+</h4>
+<div *ngIf="user.campaignsCreated.length <= 0" class="ui container">
+  <h5 class="ui header center aligned"> Aún no has creado ninguna campaña</h5>
+</div>
+
+
+<div *ngIf="user.campaignsCreated.length > 0" class="ui container scroll-container">
+  <div class="ui list">
+    <div class="item" *ngFor="let c of user.campaignsCreated">
+      <div class="content">
+        <a (click)="onClickTitle(c.id)" class="header">{{ c.title }}</a>
+        <div class="description">
+          <p *ngIf="campaignCompleted"> Campaña
+            <strong>terminada</strong> y conseguida al
+            <strong>{{ c.percentageAchieved }}%</strong>
+          </p>
+          <p *ngIf="!campaignCompleted"> Campaña
+            <strong>aún </strong> no terminada y conseguida al
+            <strong>{{ c.percentageAchieved }}%</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui icon message">
+  <i class="unlock alternate icon"></i>
+  <div class="content">
+    <div class="header">
+      Tienes activada la autenticación con doble factor?
+    </div>
+    <br>
+    <div *ngIf="latchActivated === true">
+      <div class="ui left icon input">
+        <form [formGroup]="latchForm" (ngSubmit)="pair(latchForm)" novalidate>
+          <div class="latch-container">
+            <div class="ui icon input">
+              <input type="text" formControlName="code" [(ngModel)]="code" placeholder="Enter pairing code">
+              <i class="unlock icon"></i>
+            </div>
+            <button class="ui small basic blue button" type="submit" [disabled]="!latchForm.valid">Emparejar</button>
           </div>
-          </form>            
+        </form>
+      </div>
     </div>
+    <button class="ui basic blue button" id='activate-button' (click)='toggleLatchActivation()' *ngIf="!latchActivated">Activar ahora!</button>
   </div>
-      <button class="ui basic blue button" id='activate-button' (click)='toggleLatchActivation()'>Activate now!</button>
-    </div>
-  </div>
+</div>
+

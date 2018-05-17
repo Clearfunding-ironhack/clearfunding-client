@@ -105,3 +105,18 @@ margin-top: 0;
 font-size: 12px;
 justify-content: center
 }
+
+.scroll-container {
+  height: 30vh;
+  overflow-x: hidden;
+  padding: 20px;
+ }
+
+ ::-webkit-scrollbar-thumb {
+  background: #e040fb !important;
+
+}
+
+.icon-header {
+  color: #e040fb !important;
+}

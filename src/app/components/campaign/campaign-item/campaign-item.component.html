@@ -16,22 +16,17 @@
         </a>
       </div>
 
-  </div>
+    </div>
     <div id="campaign-category-div">
       <a class="ui blue tag label" id="campaign-category">{{campaign.categories}} </a>
     </div>
 
   </div>
   <div id="social">
-      <share-buttons [theme]="'material-light'"
-      [include]="['twitter','google','linkedin','pinterest','email']"
-      [show]="5"
-      [size]="-4"
-      [description]="'Hey!check this campaign and help me raise the money!'"
-      [autoSetMeta]="false"
-     ></share-buttons>
+    <share-buttons [theme]="'material-light'" [include]="['twitter','google','linkedin','pinterest','email']" [show]="5" [size]="-4"
+      [description]="'Hey!check this campaign and help me raise the money!'" [autoSetMeta]="false"></share-buttons>
   </div>
- 
+
 
   <div class="ui text container" id="text">
     <div id="description"> {{ campaign.description }}</div>
@@ -88,44 +83,71 @@
         <span>Seconds</span>
       </div>
     </div>
-    <div class="ui message" *ngIf="campaign.isAchieved">
-      Campaign was achieved! Thank you! :)
+    <div class="ui icon message" *ngIf="campaign.isCompleted">
+      <i class="hourglass end icon"></i>
+      <div class="content">
+        <div class="header">
+          La campaña ha finalizado. Ya no se pueden hacer más contribuciones.
+        </div>
+      </div>
+
+      
     </div>
-    <div class="ui message" *ngIf="campaign.isCompleted">
-      Campaign has finished! No more contributions can be made
+    <div class="ui icon message" *ngIf="campaign.isAchieved">
+      <i class="trophy icon"></i>
+      <div class="content">
+          <div class="header">
+            Hemos conseguido el objetivo de la campaña. Gracias! :)
+          </div>
+        </div>
     </div>
+    <div class="ui icon message" *ngIf="!campaign.isAchieved">
+        <i class="thermometer empty icon"></i>
+        <div class="content">
+            <div class="header">
+              No se ha conseguido la meta :(
+            </div>
+          </div>
+      </div>
+
 
     <div class="ui segment" *ngIf="loading">
       <div class="ui active inverted dimmer" id='loading'>
-        <div class="ui large loader">Connecting with paypal</div>
+        <div class="ui large loader">
+          <p Connecting with paypal></p>
+        </div>
       </div>
     </div>
 
 
     <div class='ui four column doubling grid container' id='payment-buttons' *ngIf="!campaign.isCompleted">
       <div class="column">
-          <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '5')">
-              <i class="paypal icon"></i> <strong> DONATE 5 USD</strong>
-            </button>
+        <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '5')">
+          <i class="paypal icon"></i>
+          <strong> Contribuir 5 USD</strong>
+        </button>
       </div>
-     
+
       <div class="column">
-          <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '10')">
-              <i class="paypal icon"></i> <strong> DONATE 10 USD</strong>
-            </button>
+        <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '10')">
+          <i class="paypal icon"></i>
+          <strong> Contribuir 10 USD</strong>
+        </button>
       </div>
-      
+
       <div class="column">
-          <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '15')">
-              <i class="paypal icon"></i> <strong> DONATE 15 USD</strong>
-            </button>
+        <button class="ui basic blue button" (click)="makeDefaultPayment(campaign.id, '15')">
+          <i class="paypal icon"></i>
+          <strong> Contribuir 15 USD</strong>
+        </button>
       </div>
-    <div class="column">
+      <div class="column">
         <button class="ui basic blue button" (click)="toggleVisibilityInputPayment()">
-            <i class="paypal icon"></i> <strong> Custom amount</strong>
-          </button>
-    </div>
-     
+          <i class="paypal icon"></i>
+          <strong> Elegir cantidad</strong>
+        </button>
+      </div>
+
 
     </div>
 
