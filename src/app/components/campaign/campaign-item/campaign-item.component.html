@@ -20,6 +20,12 @@
     <div id="campaign-category-div">
       <a class="ui blue tag label" id="campaign-category">{{campaign.categories}} </a>
     </div>
+    <div id="campaign-creator-div">
+        <a id='creada-por'>
+            <img class="ui right spaced avatar image" src={{campaign.creator.image}}>
+            Creada por {{ campaign.creator.username}}
+          </a>
+      </div>
 
   </div>
   <div id="social">
@@ -101,7 +107,7 @@
           </div>
         </div>
     </div>
-    <div class="ui icon message" *ngIf="!campaign.isAchieved">
+    <div class="ui icon message" *ngIf="!campaign.isAchieved && campaign.isCompleted">
         <i class="thermometer empty icon"></i>
         <div class="content">
             <div class="header">
@@ -111,13 +117,12 @@
       </div>
 
 
-    <div class="ui segment" *ngIf="loading">
-      <div class="ui active inverted dimmer" id='loading'>
-        <div class="ui large loader">
-          <p Connecting with paypal></p>
-        </div>
-      </div>
-    </div>
+ 
+          <div class="ui active inverted dimmer" *ngIf="loading">
+            <div class="ui text massive loader" id="loader">Connecting with paypal</div>
+          </div>
+          
+  
 
 
     <div class='ui four column doubling grid container' id='payment-buttons' *ngIf="!campaign.isCompleted">
