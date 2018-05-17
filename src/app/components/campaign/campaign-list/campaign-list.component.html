@@ -33,7 +33,7 @@
                 
                   <div class="campagin-stats">
                     <div class="target-text" *ngIf="campaign.percentageAchieved;else campaign_beginning_raised">
-                        <h4>We have already achieved {{ campaign.percentageAchieved }} of the goal.</h4>
+                        <h4>Ya hemos conseguido {{ campaign.percentageAchieved }} del objetivo.</h4>
                     </div>
                     <ng-template #campaign_beginning_raised>Be the first one backign the project!</ng-template>
 
@@ -49,7 +49,7 @@
                           <h6 class="dollar icon" id="figures">{{ campaign.backersNumber}}</h6> 
                         </div>
                         <div class="label">
-                          Contributors
+                          Contribuyentes
                         </div>
                       </div>
                   
@@ -58,9 +58,9 @@
                             <h6 class="dollar icon">{{campaign.amountRaised}}€</h6> 
                           </div>
                           <div class="label">
-                              <p>of {{ campaign.target }}€</p>
+                              <p>de {{ campaign.target }}€</p>
                         </div>
-                        <ng-template #campaign_achieved>Achieved!</ng-template>
+                        <ng-template #campaign_achieved>Conseguido!</ng-template>
                 </div>
 <!-- 
                 <div class="figures">

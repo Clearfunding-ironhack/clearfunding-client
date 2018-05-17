@@ -11,12 +11,12 @@
         <div class="ui left icon input bar">
           <i class="user icon"></i>
           <input type="text" formControlName="username" required="" [(ngModel)]="user.username">
-          <label>username
+          <label>usuario
             <span class="asterisk">*</span>
           </label>
         </div>
 
-        <div class="ui blue message" id="error" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">Minimum length: 4 characters</div>
+        <div class="ui blue message" id="error" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">Mínimo 4 caracteres</div>
       </div>
 
       <div class="inputBox">
@@ -27,20 +27,20 @@
               <span class="asterisk">*</span>
           </label>
         </div>
-        <div class="ui blue message" id="error2" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter a valid email!</div>
+        <div class="ui blue message" id="error2" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Debe introducir un email válido</div>
       </div>
       <div class="inputBox">
         <div class="ui left icon input bar">
           <i class="lock icon"></i>
           <input [type]="showPassword? 'text' :'password'" formControlName="password" required="" [(ngModel)]="user.password">
-          <label>password
+          <label>contraseña
               <span class="asterisk">*</span>
           </label>
           <button class="ui icon button btn-visibility" type='button' (click)="toggleVisibilityPassword()">
             <i class="eye icon"></i>
           </button>
         </div>
-        <div class="ui blue message" id="error3" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">Minimum length: 8 characters
+        <div class="ui blue message" id="error3" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">Mínimo 8 caracteres
         </div>
 
       </div>
@@ -48,14 +48,14 @@
         <div class="ui left icon input bar">
           <i class="lock icon"></i>
           <input [type]="showPassword? 'text' :'password'" formControlName="confirmPassword" required="">
-          <label>Confirm password
+          <label>confirma la contraseña
               <span class="asterisk">*</span>
           </label>
           <button class="ui icon button btn-visibility" type='button' (click)="toggleVisibilityPassword()">
             <i class="eye icon"></i>
           </button>
         </div>
-        <div class="ui blue message" id="error4" *ngIf="!signupForm.get('confirmPassword').valid && signupForm.get('confirmPassword').touched">Passwords don't match!
+        <div class="ui blue message" id="error4" *ngIf="!signupForm.get('confirmPassword').valid && signupForm.get('confirmPassword').touched">Las contraseñas no coinciden!
         </div>
 
       </div>
@@ -63,14 +63,14 @@
       <div class="field">
         <div class="ui left icon input bar" id='upload-input'>
           <i class="upload icon"></i>
-          <input type="file" formControlName="image" id="imageFile" placeholder="Upload a profile pic" #imageFile>
+          <input type="file" formControlName="image" id="imageFile" placeholder="Sube una foto" #imageFile>
         </div>
       </div>
 
       <div class="field" id='interest-field' formArrayName="interests">
         <p>
-          Select your interests<span class="asterisk">*</span>: <br>
-          <span>(Don't worry, you'd be able to change them later!)</span>
+          Selecciona tus intereses<span class="asterisk">*</span>: <br>
+          
         </p>
 
         <div id='show-interests' *ngFor="let interest of interests">
@@ -84,11 +84,11 @@
 
       </div>
 
-      <button class="ui fluid blue button" type="submit" id="submit-signup" [disabled]="!signupForm.valid">Sign up!</button>
-      <p id="already-user">Already a user? <strong> <a [routerLink]="['/login']">Log in! </a> </strong> </p>
+      <button class="ui fluid blue button" type="submit" id="submit-signup" [disabled]="!signupForm.valid">Regístrame!</button>
+      <p id="already-user">¿ Ya eres usuario ? <strong> <a [routerLink]="['/login']"> Accede a tu cuenta </a> </strong> </p>
 
       <div class="ui success message"*ngIf="signupStatusOK && user">
-          Your account was created! :)
+          Su cuenta ha sido creada! :)
       </div>
 
     </form>

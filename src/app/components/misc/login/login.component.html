@@ -20,19 +20,19 @@
                      formControlName="password"
                      required=""
                      [(ngModel)]="user.password">
-                    <label>password</label>
+                    <label>contraseña</label>
                     <button class="ui icon button btn-visibility" type='button' (click)="toggleVisibilityPassword()">
                         <i class="eye icon"></i>
                     </button>
                     <div 
                   class="ui blue message"
-                  *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter a valid password!
+                  *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">El email tiene que ser válido
                 </div>
                 </div>
-                <button class="ui blue inverted button" type='submit' id='submit-btn' >Log in</button>
-                <a [routerLink]="['/login/forgot']">Forgot your password?</a>
+                <button class="ui blue inverted button" type='submit' id='submit-btn' >Entra</button>
+                <a [routerLink]="['/login/forgot']">He olvidado mi contraseña</a>
                 <div>
-                <p>Still not a user? <a [routerLink]="['/signup']">Sign up quickly! </a> </p>
+                <p>¿ Aún no te has registrado? <a [routerLink]="['/signup']">Regístrate </a> </p>
                 </div>
 
             </form>

@@ -127,7 +127,7 @@ export class CampaignItemComponent implements OnInit {
     this.chart = new Chart('canvas', {
       type: 'doughnut',
       data: {
-        labels: ["Amount Raised", "Target"],
+        labels: ["Cantidad recaudada", "Objetivo"],
         datasets: [{
           // label: "Amount Raised (USD)",
           backgroundColor: ["#8BFCFE", "#DBDBDB"],
@@ -137,7 +137,7 @@ export class CampaignItemComponent implements OnInit {
       options: {
         title: {
           display: true,
-          text: 'Amount Raised'
+          text: 'Cantidad recaudada'
         },
         elements: {
           center: {
